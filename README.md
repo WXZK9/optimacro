@@ -1,5 +1,5 @@
 # optimacro
-Aplikacja do tworzenie makr
+Aplikacja do automatyzacji zadań i tworzenia makr na Linuksie (X11)
 
 CELE:
 •	Możliwość tworzenia skryptów oraz skrótów klawiszowych do automatyzacji zdarzeń w LINUKSIE 
@@ -10,7 +10,7 @@ Przykłady:
 •	Zautomatyzowane wykonywanie powtarzalnych/żmudnych zadań
 •	Planowanie wykonania zadań
 
-Apliakcja: 
+Aplikacja: 
 •	UI do zarzadzania tym 
 •	Tworzeni kodu z bloków sracz tak żeby 
 •	Apliakcja na smarftona by odpalać skrypty przez telefon

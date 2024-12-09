@@ -17,6 +17,9 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.snail:hover{
+  filter: drop-shadow(0 0 2em #f77cf5aa);
+}
 
 @keyframes logo-spin {
   from {

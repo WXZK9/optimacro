@@ -57,6 +57,21 @@ const CreateMacro: React.FC = () => {
         return "gray";
     }
   };
+  const handleNavigate = (type: string) => {
+    switch (type) {
+      case "web":
+        navigate("/macro-web-temp");
+        break;
+      case "console":
+        navigate("/macro-console-temp");
+        break;
+      case "system":
+        navigate("/macro-system-temp");
+        break;
+      default:
+        navigate("/");
+    }
+  };
 
   return (
     <div className="create-macro-container">
@@ -65,6 +80,7 @@ const CreateMacro: React.FC = () => {
         {currentButtons.map((button) => (
           <button
             key={button.id}
+            onClick={() => handleNavigate(button.type)}
             style={{
               backgroundColor: getButtonColor(button.type),
               color: "white",

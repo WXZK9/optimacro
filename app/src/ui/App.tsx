@@ -5,6 +5,7 @@ import About from './windows/TSX/About';
 import Home from './windows/TSX/Home';
 import Macros from './windows/TSX/ShowAllMacro';
 import CreateMacro from './windows/TSX/CreateMacro';
+import MacroWebTemp from "./windows/TSX/MacroWebTemp";
 // Import CSS
 import './App.css';
 // Import image
@@ -31,8 +32,10 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/macros" element={<Macros />} />
             <Route path="/createMacros" element={<CreateMacro />} />
+            <Route path="/macro-web-temp" element={<MacroWebTemp />} />
           </Routes>
         </div>
+
       </div>
     </Router>
   );

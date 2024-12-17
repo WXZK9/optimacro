@@ -6,7 +6,7 @@ const Macros: React.FC = () =>{
     return (
         <div>
             <h1>Macros screen</h1>
-            <button onClick={()=>navigate("/macros")}>Macros</button>
+            <button onClick={()=>navigate("/")}>Macros</button>
         </div>
     );
 };

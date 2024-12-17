@@ -6,7 +6,7 @@ const About: React.FC = () =>{
     return (
         <div>
             <h1>About screen</h1>
-            <button onClick={()=>navigate("/home")}>Go Back</button>
+            <button onClick={()=>navigate("/")}>Go Back</button>
         </div>
     );
 };

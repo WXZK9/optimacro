@@ -1,0 +1,101 @@
+/*reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Whole grid*/
+.create-macro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh; 
+    width: 100vw; 
+    margin: 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.header {
+    font-size: 2.5rem;
+    color: #c0c0c0; 
+    margin-bottom: 20px;
+}
+
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
+    margin: 20px 0;
+    justify-content: center; 
+    align-items: center;
+}
+
+/* Individual Button */
+.grid-button {
+    padding: 20px 10px;
+    font-size: 1.5rem;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.grid-button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Pagination*/
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #3e3e3e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.nav-button:hover:disabled {
+    background-color: #f69c9c;
+    cursor: not-allowed;
+}
+
+.nav-button:hover:not(:disabled) {
+    background-color: #97f5c9;
+}
+
+
+.back-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #333;
+}

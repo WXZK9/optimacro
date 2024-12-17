@@ -1,10 +1,10 @@
 import React from 'react';
 import { HashRouter as Router, Route, Routes, Link } from 'react-router-dom';
 // Import screens
-import About from './windows/About';
-import Home from './windows/Home';
-import Macros from './windows/ShowAllMacro';
-import CreateMacro from './windows/CreateMacro';
+import About from './windows/TSX/About';
+import Home from './windows/TSX/Home';
+import Macros from './windows/TSX/ShowAllMacro';
+import CreateMacro from './windows/TSX/CreateMacro';
 // Import CSS
 import './App.css';
 // Import image

@@ -8,7 +8,13 @@
 struct UT_Window {
   Window v;
 };
-
+/**
+ * @brief Class for handling X11 events
+ *
+ * This class provides functions for sending events to X11.
+ * The class is exposed in lua as "event" namespace.
+ * Bindings are defined in attachController method.
+ */
 class EventController : public Controller {
   xdo_t *instance;
   int delay;
@@ -85,6 +91,12 @@ public:
    *    right, 4 is wheel up, 5 is wheel down.
    */
   void mouseClickWindow(Window window, int button);
+  /**
+   * Get the window the mouse is currently over
+   *
+   * @return Selected window
+   */
+  Window getWindowUnderMouse();
   ///////////////////////////////
   Window searchWindowByName(std::string name);
   void activateWindow(Window window);

@@ -54,6 +54,12 @@ void EventController::mouseClickWindow(Window window, int button) {
   xdo_click_window(instance, window, button);
 }
 
+Window EventController::getWindowUnderMouse() {
+  Window result = CURRENTWINDOW;
+  xdo_get_window_at_mouse(instance, &result);
+  return result;
+}
+
 ////////////////
 void EventController::activateWindow(Window window) {
   xdo_activate_window(instance, window);
@@ -119,6 +125,7 @@ void EventController::attachController(sol::state &lua) {
   ec_type["getMouseLocation"] = &EventController::getMouseLocation;
   ec_type["mouseClick"] = &EventController::mouseClick;
   ec_type["mouseClickWindow"] = &EventController::mouseClickWindow;
+  ec_type["getWindowUnderMouse"] = &EventController::getWindowUnderMouse;
   //////
   ec_type["setGlobalDelay"] = &EventController::setGlobalDelay;
   lua["sleep"] = [](float seconds) { usleep(seconds * (1000000)); };

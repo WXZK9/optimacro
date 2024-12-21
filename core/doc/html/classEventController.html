@@ -92,14 +92,19 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">EventController Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class for handling X11 events.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="EventController_8hpp_source.html">EventController.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for EventController:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEventController__inherit__graph.png" border="0" usemap="#aEventController_inherit__map" alt="Inheritance graph"/></div>
 <map name="aEventController_inherit__map" id="aEventController_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,144,217,469"/>
+<area shape="rect" title="Class for handling X11 events." alt="" coords="5,144,217,555"/>
 <area shape="rect" href="classController.html" title=" " alt="" coords="49,5,173,96"/>
-<area shape="poly" title=" " alt="" coords="114,111,114,144,109,144,109,111"/>
+<area shape="poly" title=" " alt="" coords="114,111,114,145,109,145,109,111"/>
 </map>
 </div>
 <div class="dynheader">
@@ -107,11 +112,11 @@ Collaboration diagram for EventController:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEventController__coll__graph.png" border="0" usemap="#aEventController_coll__map" alt="Collaboration graph"/></div>
 <map name="aEventController_coll__map" id="aEventController_coll__map">
-<area shape="rect" title=" " alt="" coords="5,279,217,604"/>
+<area shape="rect" title="Class for handling X11 events." alt="" coords="5,279,217,689"/>
 <area shape="rect" href="classController.html" title=" " alt="" coords="180,139,304,229"/>
-<area shape="poly" title=" " alt="" coords="215,244,196,280,192,278,210,241"/>
+<area shape="poly" title=" " alt="" coords="219,244,203,280,198,278,214,242"/>
 <area shape="rect" title=" " alt="" coords="55,5,101,75"/>
-<area shape="poly" title=" " alt="" coords="77,75,72,139,70,184,72,229,76,261,71,262,67,230,65,184,67,139,72,74"/>
+<area shape="poly" title=" " alt="" coords="77,75,72,139,70,184,72,229,75,261,70,262,67,230,65,184,67,139,72,74"/>
 <area shape="poly" title=" " alt="" coords="102,59,180,126,176,130,99,63"/>
 </map>
 </div>
@@ -139,6 +144,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>enterTextToWindow</b>
 <tr class="separator:a4c5a04e3fcdc679404972b4ec641e502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06c535f0f631dd72014fa29cf69e5408" id="r_a06c535f0f631dd72014fa29cf69e5408"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06c535f0f631dd72014fa29cf69e5408">mouseDown</a> (Window window, int button)</td></tr>
 <tr class="separator:a06c535f0f631dd72014fa29cf69e5408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a137846703deaf95f2ab0bd9f4c910a0d" id="r_a137846703deaf95f2ab0bd9f4c910a0d"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a137846703deaf95f2ab0bd9f4c910a0d">getMouseLocation</a> ()</td></tr>
+<tr class="separator:a137846703deaf95f2ab0bd9f4c910a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a787088f082a2eb34e640c49560f34ffe" id="r_a787088f082a2eb34e640c49560f34ffe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a787088f082a2eb34e640c49560f34ffe">mouseClick</a> (int button)</td></tr>
+<tr class="separator:a787088f082a2eb34e640c49560f34ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a530c7a35c572e81d56d3cbe599ee7e14" id="r_a530c7a35c572e81d56d3cbe599ee7e14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a530c7a35c572e81d56d3cbe599ee7e14">mouseClickWindow</a> (Window window, int button)</td></tr>
+<tr class="separator:a530c7a35c572e81d56d3cbe599ee7e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a454b637efe485ea549aba5267daa8cf3" id="r_a454b637efe485ea549aba5267daa8cf3"><td class="memItemLeft" align="right" valign="top">Window&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a454b637efe485ea549aba5267daa8cf3">getWindowUnderMouse</a> ()</td></tr>
+<tr class="separator:a454b637efe485ea549aba5267daa8cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab80573135951129ba9cf546d2434c4af" id="r_ab80573135951129ba9cf546d2434c4af"><td class="memItemLeft" align="right" valign="top"><a id="ab80573135951129ba9cf546d2434c4af" name="ab80573135951129ba9cf546d2434c4af"></a>
 Window&#160;</td><td class="memItemRight" valign="bottom"><b>searchWindowByName</b> (std::string name)</td></tr>
 <tr class="separator:ab80573135951129ba9cf546d2434c4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -160,7 +173,10 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>luaNamespace</
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>luaNamespace</b></td></tr>
 <tr class="separator:a5b7bf0334c2a1f27d7f5e2c34e774cea inherit pub_attribs_classController"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class for handling X11 events. </p>
+<p>This class provides functions for sending events to X11. The class is exposed in lua as "event" namespace. Bindings are defined in attachController method. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9daad0167e1894b3b4f1837136ab901d" name="a9daad0167e1894b3b4f1837136ab901d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9daad0167e1894b3b4f1837136ab901d">&#9670;&#160;</a></span>attachController()</h2>
 
@@ -185,6 +201,97 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>luaNamespace</
 </div><div class="memdoc">
 
 <p>Reimplemented from <a class="el" href="classController.html">Controller</a>.</p>
+
+</div>
+</div>
+<a id="a137846703deaf95f2ab0bd9f4c910a0d" name="a137846703deaf95f2ab0bd9f4c910a0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a137846703deaf95f2ab0bd9f4c910a0d">&#9670;&#160;</a></span>getMouseLocation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; int, int &gt; EventController::getMouseLocation </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current mouse location.</p>
+<dl class="section return"><dt>Returns</dt><dd>A tuple of X and Y coordinates. </dd></dl>
+
+</div>
+</div>
+<a id="a454b637efe485ea549aba5267daa8cf3" name="a454b637efe485ea549aba5267daa8cf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a454b637efe485ea549aba5267daa8cf3">&#9670;&#160;</a></span>getWindowUnderMouse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Window EventController::getWindowUnderMouse </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the window the mouse is currently over</p>
+<dl class="section return"><dt>Returns</dt><dd>Selected window </dd></dl>
+
+</div>
+</div>
+<a id="a787088f082a2eb34e640c49560f34ffe" name="a787088f082a2eb34e640c49560f34ffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a787088f082a2eb34e640c49560f34ffe">&#9670;&#160;</a></span>mouseClick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventController::mouseClick </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>button</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send a click for a specific mouse button at the current mouse location to the current window.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">button</td><td>The mouse button. Generally, 1 is left, 2 is middle, 3 is right, 4 is wheel up, 5 is wheel down. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a530c7a35c572e81d56d3cbe599ee7e14" name="a530c7a35c572e81d56d3cbe599ee7e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530c7a35c572e81d56d3cbe599ee7e14">&#9670;&#160;</a></span>mouseClickWindow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventController::mouseClickWindow </td>
+          <td>(</td>
+          <td class="paramtype">Window</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>button</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send a click for a specific mouse button at the current mouse location to a specific window.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>The window you want to send the event </td></tr>
+    <tr><td class="paramname">button</td><td>The mouse button. Generally, 1 is left, 2 is middle, 3 is right, 4 is wheel up, 5 is wheel down. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

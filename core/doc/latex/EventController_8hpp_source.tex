@@ -6,32 +6,36 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Controller.hpp"{}}}
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <X11/X.h>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <xdo.h>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structUT__Window}{UT\_Window}}\ \{}
-\DoxyCodeLine{00008\ \ \ Window\ v;}
-\DoxyCodeLine{00009\ \};}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEventController}{EventController}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classController}{Controller}}\ \{}
-\DoxyCodeLine{00012\ \ \ xdo\_t\ *instance;}
-\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{int}\ delay;}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ std::string\ luaNamespace\ =\ \textcolor{stringliteral}{"{}event"{}};}
-\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classEventController}{EventController}}();}
-\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{void}\ attachController(sol::state\ \&lua);}
-\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ enterText(std::string\ text);}
-\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{void}\ setGlobalDelay(\textcolor{keywordtype}{int}\ newDelay);}
-\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ enterTextToWindow(std::string\ text,\ Window\ window);}
-\DoxyCodeLine{00022\ \ \ \textcolor{comment}{//\ MOUSE\ EVENTS}}
-\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a2e08c3d8d64ed2666bd6663251d31113}{moveMouse}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
-\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_ac7622c26ff382c1210098ed4f803e985}{moveMouseRelative}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
-\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a607269013d7dadc50ddd1e12a804005e}{moveMouseRelativeToWindow}}(Window\ window,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
-\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a4c5a04e3fcdc679404972b4ec641e502}{mouseUp}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
-\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a06c535f0f631dd72014fa29cf69e5408}{mouseDown}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
-\DoxyCodeLine{00065\ \ \ Window\ searchWindowByName(std::string\ name);}
-\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ activateWindow(Window\ window);}
-\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ keySequence(std::string\ sequence);}
-\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <xdo.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structUT__Window}{UT\_Window}}\ \{}
+\DoxyCodeLine{00009\ \ \ Window\ v;}
+\DoxyCodeLine{00010\ \};}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEventController}{EventController}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classController}{Controller}}\ \{}
+\DoxyCodeLine{00019\ \ \ xdo\_t\ *instance;}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{int}\ delay;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ std::string\ luaNamespace\ =\ \textcolor{stringliteral}{"{}event"{}};}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classEventController}{EventController}}();}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ attachController(sol::state\ \&lua);}
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ enterText(std::string\ text);}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ setGlobalDelay(\textcolor{keywordtype}{int}\ newDelay);}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ enterTextToWindow(std::string\ text,\ Window\ window);}
+\DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ MOUSE\ EVENTS}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a2e08c3d8d64ed2666bd6663251d31113}{moveMouse}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_ac7622c26ff382c1210098ed4f803e985}{moveMouseRelative}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a607269013d7dadc50ddd1e12a804005e}{moveMouseRelativeToWindow}}(Window\ window,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a4c5a04e3fcdc679404972b4ec641e502}{mouseUp}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a06c535f0f631dd72014fa29cf69e5408}{mouseDown}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
+\DoxyCodeLine{00076\ \ \ std::tuple<int,\ int>\ \mbox{\hyperlink{classEventController_a137846703deaf95f2ab0bd9f4c910a0d}{getMouseLocation}}();}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a787088f082a2eb34e640c49560f34ffe}{mouseClick}}(\textcolor{keywordtype}{int}\ button);}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a530c7a35c572e81d56d3cbe599ee7e14}{mouseClickWindow}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
+\DoxyCodeLine{00099\ \ \ Window\ \mbox{\hyperlink{classEventController_a454b637efe485ea549aba5267daa8cf3}{getWindowUnderMouse}}();}
+\DoxyCodeLine{00101\ \ \ Window\ searchWindowByName(std::string\ name);}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{void}\ activateWindow(Window\ window);}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{void}\ keySequence(std::string\ sequence);}
+\DoxyCodeLine{00104\ \};}
 
 \end{DoxyCode}

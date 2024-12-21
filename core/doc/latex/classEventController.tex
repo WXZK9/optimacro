@@ -2,6 +2,15 @@
 \hypertarget{classEventController}{}\label{classEventController}\index{EventController@{EventController}}
 
 
+Class for handling X11 events.  
+
+
+
+
+{\ttfamily \#include $<$Event\+Controller.\+hpp$>$}
+
+
+
 Inheritance diagram for Event\+Controller\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -15,7 +24,7 @@ Collaboration diagram for Event\+Controller\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=304pt]{classEventController__coll__graph}
+\includegraphics[height=550pt]{classEventController__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -42,6 +51,14 @@ void \mbox{\hyperlink{classEventController_a4c5a04e3fcdc679404972b4ec641e502}{mo
 \item 
 void \mbox{\hyperlink{classEventController_a06c535f0f631dd72014fa29cf69e5408}{mouse\+Down}} (Window window, int button)
 \item 
+std\+::tuple$<$ int, int $>$ \mbox{\hyperlink{classEventController_a137846703deaf95f2ab0bd9f4c910a0d}{get\+Mouse\+Location}} ()
+\item 
+void \mbox{\hyperlink{classEventController_a787088f082a2eb34e640c49560f34ffe}{mouse\+Click}} (int button)
+\item 
+void \mbox{\hyperlink{classEventController_a530c7a35c572e81d56d3cbe599ee7e14}{mouse\+Click\+Window}} (Window window, int button)
+\item 
+Window \mbox{\hyperlink{classEventController_a454b637efe485ea549aba5267daa8cf3}{get\+Window\+Under\+Mouse}} ()
+\item 
 \Hypertarget{classEventController_ab80573135951129ba9cf546d2434c4af}\label{classEventController_ab80573135951129ba9cf546d2434c4af} 
 Window {\bfseries search\+Window\+By\+Name} (std\+::string name)
 \item 
@@ -65,6 +82,11 @@ std\+::string {\bfseries lua\+Namespace}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Class for handling X11 events. 
+
+This class provides functions for sending events to X11. The class is exposed in lua as "{}event"{} namespace. Bindings are defined in attach\+Controller method. 
+
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classEventController_a9daad0167e1894b3b4f1837136ab901d}\index{EventController@{EventController}!attachController@{attachController}}
 \index{attachController@{attachController}!EventController@{EventController}}
@@ -76,6 +98,56 @@ void Event\+Controller\+::attach\+Controller (\begin{DoxyParamCaption}\item[{sol
 
 Reimplemented from \mbox{\hyperlink{classController}{Controller}}.
 
+\Hypertarget{classEventController_a137846703deaf95f2ab0bd9f4c910a0d}\index{EventController@{EventController}!getMouseLocation@{getMouseLocation}}
+\index{getMouseLocation@{getMouseLocation}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{getMouseLocation()}{getMouseLocation()}}
+{\footnotesize\ttfamily \label{classEventController_a137846703deaf95f2ab0bd9f4c910a0d} 
+std\+::tuple$<$ int, int $>$ Event\+Controller\+::get\+Mouse\+Location (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the current mouse location.
+
+\begin{DoxyReturn}{Returns}
+A tuple of X and Y coordinates. 
+\end{DoxyReturn}
+\Hypertarget{classEventController_a454b637efe485ea549aba5267daa8cf3}\index{EventController@{EventController}!getWindowUnderMouse@{getWindowUnderMouse}}
+\index{getWindowUnderMouse@{getWindowUnderMouse}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{getWindowUnderMouse()}{getWindowUnderMouse()}}
+{\footnotesize\ttfamily \label{classEventController_a454b637efe485ea549aba5267daa8cf3} 
+Window Event\+Controller\+::get\+Window\+Under\+Mouse (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the window the mouse is currently over
+
+\begin{DoxyReturn}{Returns}
+Selected window 
+\end{DoxyReturn}
+\Hypertarget{classEventController_a787088f082a2eb34e640c49560f34ffe}\index{EventController@{EventController}!mouseClick@{mouseClick}}
+\index{mouseClick@{mouseClick}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{mouseClick()}{mouseClick()}}
+{\footnotesize\ttfamily \label{classEventController_a787088f082a2eb34e640c49560f34ffe} 
+void Event\+Controller\+::mouse\+Click (\begin{DoxyParamCaption}\item[{int}]{button}{}\end{DoxyParamCaption})}
+
+Send a click for a specific mouse button at the current mouse location to the current window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em button} & The mouse button. Generally, 1 is left, 2 is middle, 3 is right, 4 is wheel up, 5 is wheel down. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_a530c7a35c572e81d56d3cbe599ee7e14}\index{EventController@{EventController}!mouseClickWindow@{mouseClickWindow}}
+\index{mouseClickWindow@{mouseClickWindow}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{mouseClickWindow()}{mouseClickWindow()}}
+{\footnotesize\ttfamily \label{classEventController_a530c7a35c572e81d56d3cbe599ee7e14} 
+void Event\+Controller\+::mouse\+Click\+Window (\begin{DoxyParamCaption}\item[{Window}]{window}{, }\item[{int}]{button}{}\end{DoxyParamCaption})}
+
+Send a click for a specific mouse button at the current mouse location to a specific window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window you want to send the event \\
+\hline
+{\em button} & The mouse button. Generally, 1 is left, 2 is middle, 3 is right, 4 is wheel up, 5 is wheel down. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classEventController_a06c535f0f631dd72014fa29cf69e5408}\index{EventController@{EventController}!mouseDown@{mouseDown}}
 \index{mouseDown@{mouseDown}!EventController@{EventController}}
 \doxysubsubsection{\texorpdfstring{mouseDown()}{mouseDown()}}

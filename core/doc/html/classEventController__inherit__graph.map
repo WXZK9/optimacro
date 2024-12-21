@@ -1,5 +1,5 @@
 <map id="EventController" name="EventController">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,144,217,469"/>
+<area shape="rect" id="Node000001" title="Class for handling X11 events." alt="" coords="5,144,217,555"/>
 <area shape="rect" id="Node000002" href="$classController.html" title=" " alt="" coords="49,5,173,96"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,111,114,144,109,144,109,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,111,114,145,109,145,109,111"/>
 </map>

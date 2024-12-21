@@ -1,0 +1,30 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}optimacro}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Hierarchical Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}File Index}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}File List}{7}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Class Documentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Controller Class Reference}{10}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Event\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{11}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{14}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Member Function Documentation}{14}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}attachController()}{14}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}getMouseLocation()}{14}{subsubsection.5.2.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.3}getWindowUnderMouse()}{15}{subsubsection.5.2.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.2.4}mouseClick()}{15}{subsubsection.5.2.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.2.5}mouseClickWindow()}{15}{subsubsection.5.2.2.5}%
+\contentsline {subsubsection}{\numberline {5.2.2.6}mouseDown()}{15}{subsubsection.5.2.2.6}%
+\contentsline {subsubsection}{\numberline {5.2.2.7}mouseUp()}{15}{subsubsection.5.2.2.7}%
+\contentsline {subsubsection}{\numberline {5.2.2.8}moveMouse()}{16}{subsubsection.5.2.2.8}%
+\contentsline {subsubsection}{\numberline {5.2.2.9}moveMouseRelative()}{16}{subsubsection.5.2.2.9}%
+\contentsline {subsubsection}{\numberline {5.2.2.10}moveMouseRelativeToWindow()}{16}{subsubsection.5.2.2.10}%
+\contentsline {section}{\numberline {5.3}Lua\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Macro\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler Class Reference}{17}{section.5.3}%
+\contentsline {section}{\numberline {5.4}UT\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Struct Reference}{17}{section.5.4}%
+\contentsline {chapter}{\numberline {6}File Documentation}{19}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Controller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{19}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Event\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{19}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Lua\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Macro\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{20}{section.6.3}%
+\contentsline {chapter}{Index}{21}{section*.15}%

@@ -1,0 +1,66 @@
+\begin{theindex}
+
+  \item {attachController}
+    \subitem {EventController}, \hyperpage{14}
+
+  \indexspace
+
+  \item {Controller}, \hyperpage{10}
+
+  \indexspace
+
+  \item {EventController}, \hyperpage{11}
+    \subitem {attachController}, \hyperpage{14}
+    \subitem {getMouseLocation}, \hyperpage{14}
+    \subitem {getWindowUnderMouse}, \hyperpage{14}
+    \subitem {mouseClick}, \hyperpage{15}
+    \subitem {mouseClickWindow}, \hyperpage{15}
+    \subitem {mouseDown}, \hyperpage{15}
+    \subitem {mouseUp}, \hyperpage{15}
+    \subitem {moveMouse}, \hyperpage{16}
+    \subitem {moveMouseRelative}, \hyperpage{16}
+    \subitem {moveMouseRelativeToWindow}, \hyperpage{16}
+
+  \indexspace
+
+  \item {getMouseLocation}
+    \subitem {EventController}, \hyperpage{14}
+  \item {getWindowUnderMouse}
+    \subitem {EventController}, \hyperpage{14}
+
+  \indexspace
+
+  \item {LuaMacroHandler}, \hyperpage{17}
+
+  \indexspace
+
+  \item {mouseClick}
+    \subitem {EventController}, \hyperpage{15}
+  \item {mouseClickWindow}
+    \subitem {EventController}, \hyperpage{15}
+  \item {mouseDown}
+    \subitem {EventController}, \hyperpage{15}
+  \item {mouseUp}
+    \subitem {EventController}, \hyperpage{15}
+  \item {moveMouse}
+    \subitem {EventController}, \hyperpage{16}
+  \item {moveMouseRelative}
+    \subitem {EventController}, \hyperpage{16}
+  \item {moveMouseRelativeToWindow}
+    \subitem {EventController}, \hyperpage{16}
+
+  \indexspace
+
+  \item {optimacro}, \hyperpage{1}
+
+  \indexspace
+
+  \item {src/Controller.hpp}, \hyperpage{19}
+  \item {src/EventController.hpp}, \hyperpage{19}
+  \item {src/LuaMacroHandler.hpp}, \hyperpage{20}
+
+  \indexspace
+
+  \item {UT\_Window}, \hyperpage{17}
+
+\end{theindex}

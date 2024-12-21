@@ -6,19 +6,29 @@
 
 EventController::EventController() {
   instance = xdo_new(nullptr);
-  delay = 10000;
+  defaultDelay = 10000;
 }
 
-void EventController::setGlobalDelay(int newDelay) { this->delay = newDelay; }
+void EventController::setGlobalDelay(int newDelay) {
+  this->defaultDelay = newDelay;
+}
+
+// KEYBOARD EVENTS
 
 void EventController::enterText(std::string text) {
   Window window = CURRENTWINDOW;
-  xdo_enter_text_window(instance, window, text.c_str(), delay);
+  xdo_enter_text_window(instance, window, text.c_str(), defaultDelay);
 }
 
-void EventController::enterTextToWindow(std::string text, Window window) {
+void EventController::enterTextAdvanced(std::string text, Window window,
+                                        uint delay) {
   xdo_enter_text_window(instance, window, text.c_str(), delay);
 }
+void EventController::keySequence(std::string sequence) {
+  xdo_send_keysequence_window(instance, CURRENTWINDOW, sequence.c_str(),
+                              defaultDelay);
+}
+/////////////
 
 // MOUSE EVENTS
 void EventController::moveMouse(int x, int y) {
@@ -96,10 +106,6 @@ Window EventController::searchWindowByName(std::string name) {
   // zwolnic, bo teraz jest memory leak
 }
 
-void EventController::keySequence(std::string sequence) {
-  xdo_send_keysequence_window(instance, CURRENTWINDOW, sequence.c_str(), delay);
-}
-
 void EventController::attachController(sol::state &lua) {
   lua[luaNamespace] = this;
   sol::usertype<EventController> ec_type = lua.new_usertype<EventController>(
@@ -107,14 +113,14 @@ void EventController::attachController(sol::state &lua) {
   // sol::usertype<Window> window_type = lua.new_usertype<Window>("Window");
 
   ec_type["getCurrentWindow"] = [] { return CURRENTWINDOW; };
-
-  ec_type["enterText"] = &EventController::enterText;
-  ec_type["enterTextToWindow"] = &EventController::enterTextToWindow;
-  ec_type["keySequence"] = &EventController::keySequence;
-
   ec_type["searchWindowByName"] = &EventController::searchWindowByName;
-
   ec_type["activateWindow"] = &EventController::activateWindow;
+
+  // KEYBOARD EVENTS
+  ec_type["enterText"] = &EventController::enterText;
+  ec_type["enterTextAdvanced"] = &EventController::enterTextAdvanced;
+  ec_type["keySequence"] = &EventController::keySequence;
+  //////////////////////////
   // MOUSE EVENTS
   ec_type["moveMouse"] = &EventController::moveMouse;
   ec_type["mouseDown"] = &EventController::mouseDown;
@@ -126,7 +132,7 @@ void EventController::attachController(sol::state &lua) {
   ec_type["mouseClick"] = &EventController::mouseClick;
   ec_type["mouseClickWindow"] = &EventController::mouseClickWindow;
   ec_type["getWindowUnderMouse"] = &EventController::getWindowUnderMouse;
-  //////
+  ////////////////////////
   ec_type["setGlobalDelay"] = &EventController::setGlobalDelay;
   lua["sleep"] = [](float seconds) { usleep(seconds * (1000000)); };
 }

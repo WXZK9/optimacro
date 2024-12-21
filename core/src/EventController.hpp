@@ -17,15 +17,15 @@ struct UT_Window {
  */
 class EventController : public Controller {
   xdo_t *instance;
-  int delay;
+  int defaultDelay;
 
 public:
   std::string luaNamespace = "event";
   EventController();
   void attachController(sol::state &lua);
-  void enterText(std::string text);
   void setGlobalDelay(int newDelay);
-  void enterTextToWindow(std::string text, Window window);
+  Window searchWindowByName(std::string name);
+  void activateWindow(Window window);
   // MOUSE EVENTS
   /**
    * Move the mouse to a specific location.
@@ -98,7 +98,38 @@ public:
    */
   Window getWindowUnderMouse();
   ///////////////////////////////
-  Window searchWindowByName(std::string name);
-  void activateWindow(Window window);
+  // KEYBOARD EVENTS
+
+  /**
+   * Type a string to the current window.
+   *
+   * @param string The string to type, like "Hello world!"
+   */
+
+  void enterText(std::string text);
+  /**
+   * Type a string to the specified window with specified delay.
+   *
+   * @param string The string to type, like "Hello world!"
+   * @param window The window you want to send keystrokes to or CURRENTWINDOW
+   * @param delay The delay between keystrokes in microseconds
+   */
+  void enterTextAdvanced(std::string text, Window window, uint delay);
+  /**
+   * Send a keysequence to the current window.
+   *
+   * This allows you to send keysequences by symbol name. Any combination
+   * of X11 KeySym names separated by '+' are valid. Single KeySym names
+   * are valid, too.
+   *
+   * Examples:
+   *   "l"
+   *   "semicolon"
+   *   "alt+Return"
+   *   "Alt_L+Tab"
+   *
+   * @param keysequence The string keysequence to send.
+   */
   void keySequence(std::string sequence);
+  ///////////
 };

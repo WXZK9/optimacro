@@ -103,14 +103,14 @@ public:
   /**
    * Type a string to the current window.
    *
-   * @param string The string to type, like "Hello world!"
+   * @param text The string to type, like "Hello world!"
    */
 
   void enterText(std::string text);
   /**
    * Type a string to the specified window with specified delay.
    *
-   * @param string The string to type, like "Hello world!"
+   * @param text The string to type, like "Hello world!"
    * @param window The window you want to send keystrokes to or CURRENTWINDOW
    * @param delay The delay between keystrokes in microseconds
    */
@@ -128,7 +128,7 @@ public:
    *   "alt+Return"
    *   "Alt_L+Tab"
    *
-   * @param keysequence The string keysequence to send.
+   * @param sequence The string keysequence to send.
    */
   void keySequence(std::string sequence);
   ///////////

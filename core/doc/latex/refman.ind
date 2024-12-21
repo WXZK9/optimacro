@@ -1,53 +1,71 @@
 \begin{theindex}
 
   \item {attachController}
-    \subitem {EventController}, \hyperpage{14}
+    \subitem {Controller}, \hyperpage{11}
+    \subitem {EventController}, \hyperpage{15}
 
   \indexspace
 
-  \item {Controller}, \hyperpage{10}
+  \item {Controller}, \hyperpage{9}
+    \subitem {attachController}, \hyperpage{11}
+    \subitem {luaNamespace}, \hyperpage{12}
 
   \indexspace
 
-  \item {EventController}, \hyperpage{11}
-    \subitem {attachController}, \hyperpage{14}
-    \subitem {getMouseLocation}, \hyperpage{14}
-    \subitem {getWindowUnderMouse}, \hyperpage{14}
-    \subitem {mouseClick}, \hyperpage{15}
-    \subitem {mouseClickWindow}, \hyperpage{15}
-    \subitem {mouseDown}, \hyperpage{15}
-    \subitem {mouseUp}, \hyperpage{15}
-    \subitem {moveMouse}, \hyperpage{16}
-    \subitem {moveMouseRelative}, \hyperpage{16}
-    \subitem {moveMouseRelativeToWindow}, \hyperpage{16}
+  \item {enterText}
+    \subitem {EventController}, \hyperpage{15}
+  \item {enterTextAdvanced}
+    \subitem {EventController}, \hyperpage{16}
+  \item {EventController}, \hyperpage{12}
+    \subitem {attachController}, \hyperpage{15}
+    \subitem {enterText}, \hyperpage{15}
+    \subitem {enterTextAdvanced}, \hyperpage{16}
+    \subitem {getMouseLocation}, \hyperpage{16}
+    \subitem {getWindowUnderMouse}, \hyperpage{16}
+    \subitem {keySequence}, \hyperpage{16}
+    \subitem {mouseClick}, \hyperpage{17}
+    \subitem {mouseClickWindow}, \hyperpage{17}
+    \subitem {mouseDown}, \hyperpage{17}
+    \subitem {mouseUp}, \hyperpage{17}
+    \subitem {moveMouse}, \hyperpage{18}
+    \subitem {moveMouseRelative}, \hyperpage{18}
+    \subitem {moveMouseRelativeToWindow}, \hyperpage{18}
 
   \indexspace
 
   \item {getMouseLocation}
-    \subitem {EventController}, \hyperpage{14}
+    \subitem {EventController}, \hyperpage{16}
   \item {getWindowUnderMouse}
-    \subitem {EventController}, \hyperpage{14}
+    \subitem {EventController}, \hyperpage{16}
 
   \indexspace
 
-  \item {LuaMacroHandler}, \hyperpage{17}
+  \item {keySequence}
+    \subitem {EventController}, \hyperpage{16}
+
+  \indexspace
+
+  \item {LuaMacroHandler}, \hyperpage{19}
+    \subitem {runFromFile}, \hyperpage{19}
+  \item {luaNamespace}
+    \subitem {Controller}, \hyperpage{12}
 
   \indexspace
 
   \item {mouseClick}
-    \subitem {EventController}, \hyperpage{15}
+    \subitem {EventController}, \hyperpage{17}
   \item {mouseClickWindow}
-    \subitem {EventController}, \hyperpage{15}
+    \subitem {EventController}, \hyperpage{17}
   \item {mouseDown}
-    \subitem {EventController}, \hyperpage{15}
+    \subitem {EventController}, \hyperpage{17}
   \item {mouseUp}
-    \subitem {EventController}, \hyperpage{15}
+    \subitem {EventController}, \hyperpage{17}
   \item {moveMouse}
-    \subitem {EventController}, \hyperpage{16}
+    \subitem {EventController}, \hyperpage{18}
   \item {moveMouseRelative}
-    \subitem {EventController}, \hyperpage{16}
+    \subitem {EventController}, \hyperpage{18}
   \item {moveMouseRelativeToWindow}
-    \subitem {EventController}, \hyperpage{16}
+    \subitem {EventController}, \hyperpage{18}
 
   \indexspace
 
@@ -55,12 +73,17 @@
 
   \indexspace
 
-  \item {src/Controller.hpp}, \hyperpage{19}
-  \item {src/EventController.hpp}, \hyperpage{19}
-  \item {src/LuaMacroHandler.hpp}, \hyperpage{20}
+  \item {runFromFile}
+    \subitem {LuaMacroHandler}, \hyperpage{19}
 
   \indexspace
 
-  \item {UT\_Window}, \hyperpage{17}
+  \item {src/Controller.hpp}, \hyperpage{21}
+  \item {src/EventController.hpp}, \hyperpage{21}
+  \item {src/LuaMacroHandler.hpp}, \hyperpage{22}
+
+  \indexspace
+
+  \item {UT\_Window}, \hyperpage{20}
 
 \end{theindex}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  21 DEC 2024 21:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.11.13)  21 DEC 2024 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -854,9 +854,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 6.29996pt on input line 230.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 230.
- [1] [2
-
-]
+ [1] [2]
 Package hyperref Info: Option `pageanchor' set `true' on input line 233.
  (./index.tex
 Chapter 1.
@@ -880,6 +878,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
 ) [1
 
+
 ] [2
 
 ]
@@ -899,89 +898,82 @@ Chapter 4.
 
 ]
 Chapter 5.
-(./classController.tex <./classController__inherit__graph.pdf>
-<classController__inherit__graph.pdf, id=226, 239.89626pt x 493.845pt>
+(./classController.tex
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
+.
+ (/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) <./classController__inherit__graph.pdf>
+<classController__inherit__graph.pdf, id=281, 239.89626pt x 493.845pt>
 File: classController__inherit__graph.pdf Graphic file (type pdf)
 <use classController__inherit__graph.pdf>
 Package pdftex.def Info: classController__inherit__graph.pdf  used on input lin
-e 9.
+e 18.
 (pdftex.def)             Requested size: 239.0pt x 492.00513pt.
- [9]
-Overfull \vbox (45.2685pt too high) has occurred while \output is active []
-
-
-[10] <./classController__coll__graph.pdf>
-<classController__coll__graph.pdf, id=245, 201.75375pt x 248.93pt>
+ [9] <./classController__coll__graph.pdf>
+<classController__coll__graph.pdf, id=296, 201.75375pt x 248.93pt>
 File: classController__coll__graph.pdf Graphic file (type pdf)
 <use classController__coll__graph.pdf>
-Package pdftex.def Info: classController__coll__graph.pdf  used on input line 1
-8.
+Package pdftex.def Info: classController__coll__graph.pdf  used on input line 2
+7.
 (pdftex.def)             Requested size: 201.0pt x 248.00258pt.
-) (./classEventController.tex
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
-.
 
-(/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) <./classEventController__inherit__graph.pdf>
-<classEventController__inherit__graph.pdf, id=253, 239.89626pt x 493.845pt>
+[10]
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 42.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 49.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 50.
+ [11]) (./classEventController.tex <./classEventController__inherit__graph.pdf>
+<classEventController__inherit__graph.pdf, id=329, 239.89626pt x 493.845pt>
 File: classEventController__inherit__graph.pdf Graphic file (type pdf)
 <use classEventController__inherit__graph.pdf>
 Package pdftex.def Info: classEventController__inherit__graph.pdf  used on inpu
 t line 18.
 (pdftex.def)             Requested size: 239.0pt x 492.00513pt.
- [11] <./classEventController__coll__graph.pdf>
-<classEventController__coll__graph.pdf, id=273, 305.14pt x 595.22375pt>
+ [12] <./classEventController__coll__graph.pdf>
+<classEventController__coll__graph.pdf, id=341, 305.14pt x 595.22375pt>
 File: classEventController__coll__graph.pdf Graphic file (type pdf)
 <use classEventController__coll__graph.pdf>
 Package pdftex.def Info: classEventController__coll__graph.pdf  used on input l
 ine 27.
 (pdftex.def)             Requested size: 281.9707pt x 550.0pt.
- [12] [13]
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 71.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 94.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 95.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 109.
-
-Underfull \hbox (badness 10000) detected at line 109
+ [13] [14] [15]
+Underfull \hbox (badness 10000) detected at line 143
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 120
+Underfull \hbox (badness 10000) detected at line 154
 [][][]
  []
 
-[14] [15]) (./classLuaMacroHandler.tex <./classLuaMacroHandler__coll__graph.pdf
->
-<classLuaMacroHandler__coll__graph.pdf, id=344, 180.675pt x 148.555pt>
+[16] [17]) (./classLuaMacroHandler.tex [18] <./classLuaMacroHandler__coll__grap
+h.pdf>
+<classLuaMacroHandler__coll__graph.pdf, id=428, 180.675pt x 148.555pt>
 File: classLuaMacroHandler__coll__graph.pdf Graphic file (type pdf)
 <use classLuaMacroHandler__coll__graph.pdf>
 Package pdftex.def Info: classLuaMacroHandler__coll__graph.pdf  used on input l
-ine 9.
+ine 18.
 (pdftex.def)             Requested size: 180.0pt x 148.00153pt.
- [16]) (./structUT__Window.tex <./structUT__Window__coll__graph.pdf>
-<structUT__Window__coll__graph.pdf, id=367, 144.54pt x 232.87pt>
+) (./structUT__Window.tex <./structUT__Window__coll__graph.pdf>
+<structUT__Window__coll__graph.pdf, id=444, 144.54pt x 232.87pt>
 File: structUT__Window__coll__graph.pdf Graphic file (type pdf)
 <use structUT__Window__coll__graph.pdf>
 Package pdftex.def Info: structUT__Window__coll__graph.pdf  used on input line 
 9.
 (pdftex.def)             Requested size: 144.0pt x 232.01306pt.
- [17])
-[18]
+ [19])
+[20]
 Chapter 6.
 (./Controller_8hpp_source.tex) (./EventController_8hpp_source.tex)
-(./LuaMacroHandler_8hpp_source.tex [19
+(./LuaMacroHandler_8hpp_source.tex [21
 
-]) [20] (./refman.ind
+]) [22] (./refman.ind
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 22.39185pt on input line 1.
- [21
-
+ [23
 
 
 
@@ -991,13 +983,13 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: E31C7DAB1BC272F7E942568169204C4D;5140.
+(rerunfilecheck)             Checksum: BDB57225377D6F3D0220DADCAF9ADADA;7422.
  ) 
 Here is how much of TeX's memory you used:
- 18032 strings out of 475405
- 287114 string characters out of 5776191
+ 18068 strings out of 475405
+ 287660 string characters out of 5776191
  1942187 words of memory out of 5000000
- 39742 multiletter control sequences out of 15000+600000
+ 39759 multiletter control sequences out of 15000+600000
  605487 words of font info for 98 fonts, out of 8000000 for 9000
  392 hyphenation exceptions out of 8191
  101i,15n,117p,482b,744s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1008,10 +1000,10 @@ crro8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/sha
 re/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf-dist/fonts
 /type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/
 uhvro8a.pfb>
-Output written on refman.pdf (25 pages, 165953 bytes).
+Output written on refman.pdf (27 pages, 176414 bytes).
 PDF statistics:
- 517 PDF objects out of 1000 (max. 8388607)
- 444 compressed objects within 5 object streams
- 103 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 619 PDF objects out of 1000 (max. 8388607)
+ 541 compressed objects within 6 object streams
+ 122 named destinations out of 1000 (max. 500000)
+ 351 words of extra memory for PDF output out of 10000 (max. 10000000)
 

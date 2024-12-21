@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['getmouselocation_0',['getMouseLocation',['../classEventController.html#a137846703deaf95f2ab0bd9f4c910a0d',1,'EventController']]],
-  ['getwindowundermouse_1',['getWindowUnderMouse',['../classEventController.html#a454b637efe485ea549aba5267daa8cf3',1,'EventController']]]
+  ['attachcontroller_0',['attachController',['../classController.html#a2d3c5594fc0372f92dc89b806d519b27',1,'Controller::attachController()'],['../classEventController.html#a9daad0167e1894b3b4f1837136ab901d',1,'EventController::attachController()']]]
 ];

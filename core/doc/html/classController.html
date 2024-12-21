@@ -92,12 +92,17 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">Controller Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base class for controllers.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Controller_8hpp_source.html">Controller.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Controller:</div>
 <div class="dyncontent">
 <div class="center"><img src="classController__inherit__graph.png" border="0" usemap="#aController_inherit__map" alt="Inheritance graph"/></div>
 <map name="aController_inherit__map" id="aController_inherit__map">
-<area shape="rect" title=" " alt="" coords="49,5,173,96"/>
+<area shape="rect" title="Base class for controllers." alt="" coords="49,5,173,96"/>
 <area shape="rect" href="classEventController.html" title="Class for handling X11 events." alt="" coords="5,144,217,555"/>
 <area shape="poly" title=" " alt="" coords="114,111,114,145,109,145,109,111"/>
 </map>
@@ -107,7 +112,7 @@ Collaboration diagram for Controller:</div>
 <div class="dyncontent">
 <div class="center"><img src="classController__coll__graph.png" border="0" usemap="#aController_coll__map" alt="Collaboration graph"/></div>
 <map name="aController_coll__map" id="aController_coll__map">
-<area shape="rect" title=" " alt="" coords="5,139,129,229"/>
+<area shape="rect" title="Base class for controllers." alt="" coords="5,139,129,229"/>
 <area shape="rect" title=" " alt="" coords="45,5,90,75"/>
 <area shape="poly" title=" " alt="" coords="70,74,70,122,65,122,65,74"/>
 </map>
@@ -115,16 +120,67 @@ Collaboration diagram for Controller:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2d3c5594fc0372f92dc89b806d519b27" id="r_a2d3c5594fc0372f92dc89b806d519b27"><td class="memItemLeft" align="right" valign="top"><a id="a2d3c5594fc0372f92dc89b806d519b27" name="a2d3c5594fc0372f92dc89b806d519b27"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>attachController</b> (sol::state &amp;lua)</td></tr>
+<tr class="memitem:a2d3c5594fc0372f92dc89b806d519b27" id="r_a2d3c5594fc0372f92dc89b806d519b27"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d3c5594fc0372f92dc89b806d519b27">attachController</a> (sol::state &amp;lua)</td></tr>
 <tr class="separator:a2d3c5594fc0372f92dc89b806d519b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5b7bf0334c2a1f27d7f5e2c34e774cea" id="r_a5b7bf0334c2a1f27d7f5e2c34e774cea"><td class="memItemLeft" align="right" valign="top"><a id="a5b7bf0334c2a1f27d7f5e2c34e774cea" name="a5b7bf0334c2a1f27d7f5e2c34e774cea"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>luaNamespace</b></td></tr>
+<tr class="memitem:a5b7bf0334c2a1f27d7f5e2c34e774cea" id="r_a5b7bf0334c2a1f27d7f5e2c34e774cea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b7bf0334c2a1f27d7f5e2c34e774cea">luaNamespace</a></td></tr>
 <tr class="separator:a5b7bf0334c2a1f27d7f5e2c34e774cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for controllers. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2d3c5594fc0372f92dc89b806d519b27" name="a2d3c5594fc0372f92dc89b806d519b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d3c5594fc0372f92dc89b806d519b27">&#9670;&#160;</a></span>attachController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Controller::attachController </td>
+          <td>(</td>
+          <td class="paramtype">sol::state &amp;</td>          <td class="paramname"><span class="paramname"><em>lua</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Method for attaching controller to lua state.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lua</td><td>Lua state to attach to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classEventController.html#a9daad0167e1894b3b4f1837136ab901d">EventController</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5b7bf0334c2a1f27d7f5e2c34e774cea" name="a5b7bf0334c2a1f27d7f5e2c34e774cea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b7bf0334c2a1f27d7f5e2c34e774cea">&#9670;&#160;</a></span>luaNamespace</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Controller::luaNamespace</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Name of lua namespace to use. This will be used as the base class name in lua scripts </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/<a class="el" href="Controller_8hpp_source.html">Controller.hpp</a></li>
 </ul>

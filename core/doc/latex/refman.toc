@@ -7,24 +7,35 @@
 \contentsline {chapter}{\numberline {4}File Index}{7}{chapter.4}%
 \contentsline {section}{\numberline {4.1}File List}{7}{section.4.1}%
 \contentsline {chapter}{\numberline {5}Class Documentation}{9}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Controller Class Reference}{10}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Event\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{11}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{14}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Member Function Documentation}{14}{subsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.2.1}attachController()}{14}{subsubsection.5.2.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2.2}getMouseLocation()}{14}{subsubsection.5.2.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.2.3}getWindowUnderMouse()}{15}{subsubsection.5.2.2.3}%
-\contentsline {subsubsection}{\numberline {5.2.2.4}mouseClick()}{15}{subsubsection.5.2.2.4}%
-\contentsline {subsubsection}{\numberline {5.2.2.5}mouseClickWindow()}{15}{subsubsection.5.2.2.5}%
-\contentsline {subsubsection}{\numberline {5.2.2.6}mouseDown()}{15}{subsubsection.5.2.2.6}%
-\contentsline {subsubsection}{\numberline {5.2.2.7}mouseUp()}{15}{subsubsection.5.2.2.7}%
-\contentsline {subsubsection}{\numberline {5.2.2.8}moveMouse()}{16}{subsubsection.5.2.2.8}%
-\contentsline {subsubsection}{\numberline {5.2.2.9}moveMouseRelative()}{16}{subsubsection.5.2.2.9}%
-\contentsline {subsubsection}{\numberline {5.2.2.10}moveMouseRelativeToWindow()}{16}{subsubsection.5.2.2.10}%
-\contentsline {section}{\numberline {5.3}Lua\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Macro\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler Class Reference}{17}{section.5.3}%
-\contentsline {section}{\numberline {5.4}UT\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Struct Reference}{17}{section.5.4}%
-\contentsline {chapter}{\numberline {6}File Documentation}{19}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Controller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{19}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Event\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{19}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Lua\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Macro\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{20}{section.6.3}%
-\contentsline {chapter}{Index}{21}{section*.15}%
+\contentsline {section}{\numberline {5.1}Controller Class Reference}{9}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{11}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Member Function Documentation}{11}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}attachController()}{11}{subsubsection.5.1.2.1}%
+\contentsline {subsection}{\numberline {5.1.3}Member Data Documentation}{12}{subsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.3.1}luaNamespace}{12}{subsubsection.5.1.3.1}%
+\contentsline {section}{\numberline {5.2}Event\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller Class Reference}{12}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{15}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Member Function Documentation}{15}{subsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}attachController()}{15}{subsubsection.5.2.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}enterText()}{15}{subsubsection.5.2.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.2.3}enterTextAdvanced()}{16}{subsubsection.5.2.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.2.4}getMouseLocation()}{16}{subsubsection.5.2.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.2.5}getWindowUnderMouse()}{16}{subsubsection.5.2.2.5}%
+\contentsline {subsubsection}{\numberline {5.2.2.6}keySequence()}{16}{subsubsection.5.2.2.6}%
+\contentsline {subsubsection}{\numberline {5.2.2.7}mouseClick()}{17}{subsubsection.5.2.2.7}%
+\contentsline {subsubsection}{\numberline {5.2.2.8}mouseClickWindow()}{17}{subsubsection.5.2.2.8}%
+\contentsline {subsubsection}{\numberline {5.2.2.9}mouseDown()}{17}{subsubsection.5.2.2.9}%
+\contentsline {subsubsection}{\numberline {5.2.2.10}mouseUp()}{17}{subsubsection.5.2.2.10}%
+\contentsline {subsubsection}{\numberline {5.2.2.11}moveMouse()}{18}{subsubsection.5.2.2.11}%
+\contentsline {subsubsection}{\numberline {5.2.2.12}moveMouseRelative()}{18}{subsubsection.5.2.2.12}%
+\contentsline {subsubsection}{\numberline {5.2.2.13}moveMouseRelativeToWindow()}{18}{subsubsection.5.2.2.13}%
+\contentsline {section}{\numberline {5.3}Lua\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Macro\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler Class Reference}{19}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{19}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Member Function Documentation}{19}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}runFromFile()}{19}{subsubsection.5.3.2.1}%
+\contentsline {section}{\numberline {5.4}UT\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Struct Reference}{20}{section.5.4}%
+\contentsline {chapter}{\numberline {6}File Documentation}{21}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Controller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{21}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Event\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{21}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Lua\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Macro\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{22}{section.6.3}%
+\contentsline {chapter}{Index}{23}{section*.15}%

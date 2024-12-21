@@ -32,14 +32,14 @@ Collaboration diagram for Event\+Controller\+:\nopagebreak
 \item 
 void \mbox{\hyperlink{classEventController_a9daad0167e1894b3b4f1837136ab901d}{attach\+Controller}} (sol\+::state \&lua)
 \item 
-\Hypertarget{classEventController_a615b3cbae208e40d57bf4470e2de8466}\label{classEventController_a615b3cbae208e40d57bf4470e2de8466} 
-void {\bfseries enter\+Text} (std\+::string text)
-\item 
 \Hypertarget{classEventController_a4bdf916bb66a3043fc243a11732bb7c5}\label{classEventController_a4bdf916bb66a3043fc243a11732bb7c5} 
 void {\bfseries set\+Global\+Delay} (int new\+Delay)
 \item 
-\Hypertarget{classEventController_aae1b43a892d6a137da0bab7f5f89df2d}\label{classEventController_aae1b43a892d6a137da0bab7f5f89df2d} 
-void {\bfseries enter\+Text\+To\+Window} (std\+::string text, Window window)
+\Hypertarget{classEventController_ab80573135951129ba9cf546d2434c4af}\label{classEventController_ab80573135951129ba9cf546d2434c4af} 
+Window {\bfseries search\+Window\+By\+Name} (std\+::string name)
+\item 
+\Hypertarget{classEventController_a3fcd359deadfe570e86b7cd34f5d14ac}\label{classEventController_a3fcd359deadfe570e86b7cd34f5d14ac} 
+void {\bfseries activate\+Window} (Window window)
 \item 
 void \mbox{\hyperlink{classEventController_a2e08c3d8d64ed2666bd6663251d31113}{move\+Mouse}} (int x, int y)
 \item 
@@ -59,14 +59,11 @@ void \mbox{\hyperlink{classEventController_a530c7a35c572e81d56d3cbe599ee7e14}{mo
 \item 
 Window \mbox{\hyperlink{classEventController_a454b637efe485ea549aba5267daa8cf3}{get\+Window\+Under\+Mouse}} ()
 \item 
-\Hypertarget{classEventController_ab80573135951129ba9cf546d2434c4af}\label{classEventController_ab80573135951129ba9cf546d2434c4af} 
-Window {\bfseries search\+Window\+By\+Name} (std\+::string name)
+void \mbox{\hyperlink{classEventController_a615b3cbae208e40d57bf4470e2de8466}{enter\+Text}} (std\+::string text)
 \item 
-\Hypertarget{classEventController_a3fcd359deadfe570e86b7cd34f5d14ac}\label{classEventController_a3fcd359deadfe570e86b7cd34f5d14ac} 
-void {\bfseries activate\+Window} (Window window)
+void \mbox{\hyperlink{classEventController_a3ebc986f41027fcf4adfc15cd3fbebd2}{enter\+Text\+Advanced}} (std\+::string text, Window window, uint delay)
 \item 
-\Hypertarget{classEventController_a6a3067645b815154c3c0a52aaeada390}\label{classEventController_a6a3067645b815154c3c0a52aaeada390} 
-void {\bfseries key\+Sequence} (std\+::string sequence)
+void \mbox{\hyperlink{classEventController_a6a3067645b815154c3c0a52aaeada390}{key\+Sequence}} (std\+::string sequence)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classController}{Controller}}}
 \doxysubsubsection*{Public Attributes}
@@ -78,7 +75,7 @@ std\+::string {\bfseries lua\+Namespace} = "{}event"{}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classController}{Controller}}}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string {\bfseries lua\+Namespace}
+std\+::string \mbox{\hyperlink{classController_a5b7bf0334c2a1f27d7f5e2c34e774cea}{lua\+Namespace}}
 \end{DoxyCompactItemize}
 
 
@@ -94,10 +91,47 @@ This class provides functions for sending events to X11. The class is exposed in
 {\footnotesize\ttfamily \label{classEventController_a9daad0167e1894b3b4f1837136ab901d} 
 void Event\+Controller\+::attach\+Controller (\begin{DoxyParamCaption}\item[{sol\+::state \&}]{lua}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
+Method for attaching controller to lua state.
 
 
-Reimplemented from \mbox{\hyperlink{classController}{Controller}}.
+\begin{DoxyParams}{Parameters}
+{\em lua} & Lua state to attach to. \\
+\hline
+\end{DoxyParams}
 
+
+Reimplemented from \mbox{\hyperlink{classController_a2d3c5594fc0372f92dc89b806d519b27}{Controller}}.
+
+\Hypertarget{classEventController_a615b3cbae208e40d57bf4470e2de8466}\index{EventController@{EventController}!enterText@{enterText}}
+\index{enterText@{enterText}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{enterText()}{enterText()}}
+{\footnotesize\ttfamily \label{classEventController_a615b3cbae208e40d57bf4470e2de8466} 
+void Event\+Controller\+::enter\+Text (\begin{DoxyParamCaption}\item[{std\+::string}]{text}{}\end{DoxyParamCaption})}
+
+Type a string to the current window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The string to type, like "{}\+Hello world!"{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_a3ebc986f41027fcf4adfc15cd3fbebd2}\index{EventController@{EventController}!enterTextAdvanced@{enterTextAdvanced}}
+\index{enterTextAdvanced@{enterTextAdvanced}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{enterTextAdvanced()}{enterTextAdvanced()}}
+{\footnotesize\ttfamily \label{classEventController_a3ebc986f41027fcf4adfc15cd3fbebd2} 
+void Event\+Controller\+::enter\+Text\+Advanced (\begin{DoxyParamCaption}\item[{std\+::string}]{text}{, }\item[{Window}]{window}{, }\item[{uint}]{delay}{}\end{DoxyParamCaption})}
+
+Type a string to the specified window with specified delay.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The string to type, like "{}\+Hello world!"{} \\
+\hline
+{\em window} & The window you want to send keystrokes to or CURRENTWINDOW \\
+\hline
+{\em delay} & The delay between keystrokes in microseconds \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classEventController_a137846703deaf95f2ab0bd9f4c910a0d}\index{EventController@{EventController}!getMouseLocation@{getMouseLocation}}
 \index{getMouseLocation@{getMouseLocation}!EventController@{EventController}}
 \doxysubsubsection{\texorpdfstring{getMouseLocation()}{getMouseLocation()}}
@@ -120,6 +154,23 @@ Get the window the mouse is currently over
 \begin{DoxyReturn}{Returns}
 Selected window 
 \end{DoxyReturn}
+\Hypertarget{classEventController_a6a3067645b815154c3c0a52aaeada390}\index{EventController@{EventController}!keySequence@{keySequence}}
+\index{keySequence@{keySequence}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{keySequence()}{keySequence()}}
+{\footnotesize\ttfamily \label{classEventController_a6a3067645b815154c3c0a52aaeada390} 
+void Event\+Controller\+::key\+Sequence (\begin{DoxyParamCaption}\item[{std\+::string}]{sequence}{}\end{DoxyParamCaption})}
+
+Send a keysequence to the current window.
+
+This allows you to send keysequences by symbol name. Any combination of X11 Key\+Sym names separated by \textquotesingle{}+\textquotesingle{} are valid. Single Key\+Sym names are valid, too.
+
+Examples\+: "{}l"{} "{}semicolon"{} "{}alt+\+Return"{} "{}\+Alt\+\_\+\+L+\+Tab"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The string keysequence to send. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classEventController_a787088f082a2eb34e640c49560f34ffe}\index{EventController@{EventController}!mouseClick@{mouseClick}}
 \index{mouseClick@{mouseClick}!EventController@{EventController}}
 \doxysubsubsection{\texorpdfstring{mouseClick()}{mouseClick()}}

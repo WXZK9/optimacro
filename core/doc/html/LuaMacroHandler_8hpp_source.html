@@ -95,20 +95,22 @@ $(function(){ initResizable(false); });
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;Controller.hpp&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;EventController.hpp&quot;</span></div>
-<div class="foldopen" id="foldopen00004" data-start="{" data-end="};">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="classLuaMacroHandler.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="classLuaMacroHandler.html">LuaMacroHandler</a> {</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>  sol::state lua;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>  std::vector&lt;Controller *&gt;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>      controllers; <span class="comment">// TODO smartpointery/destruktor, bo beda</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>                   <span class="comment">// leaki w uj jak tego nie zwolnimy, a sie samo nie zwolni</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="keywordtype">void</span> attachAllControllers();</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <a class="code hl_class" href="classLuaMacroHandler.html">LuaMacroHandler</a>();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <span class="keywordtype">void</span> runFromFile(std::string name);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classLuaMacroHandler.html">   12</a></span><span class="keyword">class </span><a class="code hl_class" href="classLuaMacroHandler.html">LuaMacroHandler</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  sol::state lua;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  std::vector&lt;Controller *&gt;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>      controllers; <span class="comment">// TODO smartpointery/destruktor, bo beda</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>                   <span class="comment">// leaki w uj jak tego nie zwolnimy, a sie samo nie zwolni</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keywordtype">void</span> attachAllControllers();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <a class="code hl_class" href="classLuaMacroHandler.html">LuaMacroHandler</a>();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classLuaMacroHandler.html#a7af89b08365cb48fefe6d431bcb99b7e">runFromFile</a>(std::string name);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
 </div>
-<div class="ttc" id="aclassLuaMacroHandler_html"><div class="ttname"><a href="classLuaMacroHandler.html">LuaMacroHandler</a></div><div class="ttdef"><b>Definition</b> LuaMacroHandler.hpp:4</div></div>
+<div class="ttc" id="aclassLuaMacroHandler_html"><div class="ttname"><a href="classLuaMacroHandler.html">LuaMacroHandler</a></div><div class="ttdoc">Class for handling lua macros.</div><div class="ttdef"><b>Definition</b> LuaMacroHandler.hpp:12</div></div>
+<div class="ttc" id="aclassLuaMacroHandler_html_a7af89b08365cb48fefe6d431bcb99b7e"><div class="ttname"><a href="classLuaMacroHandler.html#a7af89b08365cb48fefe6d431bcb99b7e">LuaMacroHandler::runFromFile</a></div><div class="ttdeci">void runFromFile(std::string name)</div><div class="ttdef"><b>Definition</b> LuaMacroHandler.cpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -95,15 +95,17 @@ $(function(){ initResizable(false); });
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;sol/sol.hpp&gt;</span></div>
-<div class="foldopen" id="foldopen00004" data-start="{" data-end="};">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="classController.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="classController.html">Controller</a> {</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>  std::string luaNamespace;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> attachController(sol::state &amp;lua) {};</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keyword">virtual</span> <a class="code hl_class" href="classController.html">~Controller</a>(){};</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>};</div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classController.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classController.html">Controller</a> {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classController.html#a5b7bf0334c2a1f27d7f5e2c34e774cea">   13</a></span>  std::string <a class="code hl_variable" href="classController.html#a5b7bf0334c2a1f27d7f5e2c34e774cea">luaNamespace</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classController.html#a2d3c5594fc0372f92dc89b806d519b27">   19</a></span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classController.html#a2d3c5594fc0372f92dc89b806d519b27">attachController</a>(sol::state &amp;lua) {};</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keyword">virtual</span> <a class="code hl_class" href="classController.html">~Controller</a>(){};</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
 </div>
-<div class="ttc" id="aclassController_html"><div class="ttname"><a href="classController.html">Controller</a></div><div class="ttdef"><b>Definition</b> Controller.hpp:4</div></div>
+<div class="ttc" id="aclassController_html"><div class="ttname"><a href="classController.html">Controller</a></div><div class="ttdoc">Base class for controllers.</div><div class="ttdef"><b>Definition</b> Controller.hpp:7</div></div>
+<div class="ttc" id="aclassController_html_a2d3c5594fc0372f92dc89b806d519b27"><div class="ttname"><a href="classController.html#a2d3c5594fc0372f92dc89b806d519b27">Controller::attachController</a></div><div class="ttdeci">virtual void attachController(sol::state &amp;lua)</div><div class="ttdef"><b>Definition</b> Controller.hpp:19</div></div>
+<div class="ttc" id="aclassController_html_a5b7bf0334c2a1f27d7f5e2c34e774cea"><div class="ttname"><a href="classController.html#a5b7bf0334c2a1f27d7f5e2c34e774cea">Controller::luaNamespace</a></div><div class="ttdeci">std::string luaNamespace</div><div class="ttdef"><b>Definition</b> Controller.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

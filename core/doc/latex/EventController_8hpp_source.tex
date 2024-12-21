@@ -14,15 +14,15 @@
 \DoxyCodeLine{00010\ \};}
 \DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEventController}{EventController}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classController}{Controller}}\ \{}
 \DoxyCodeLine{00019\ \ \ xdo\_t\ *instance;}
-\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{int}\ delay;}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{int}\ defaultDelay;}
 \DoxyCodeLine{00021\ }
 \DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00023\ \ \ std::string\ luaNamespace\ =\ \textcolor{stringliteral}{"{}event"{}};}
 \DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classEventController}{EventController}}();}
-\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ attachController(sol::state\ \&lua);}
-\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ enterText(std::string\ text);}
-\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ setGlobalDelay(\textcolor{keywordtype}{int}\ newDelay);}
-\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ enterTextToWindow(std::string\ text,\ Window\ window);}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a9daad0167e1894b3b4f1837136ab901d}{attachController}}(sol::state\ \&lua);}
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ setGlobalDelay(\textcolor{keywordtype}{int}\ newDelay);}
+\DoxyCodeLine{00027\ \ \ Window\ searchWindowByName(std::string\ name);}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ activateWindow(Window\ window);}
 \DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ MOUSE\ EVENTS}}
 \DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a2e08c3d8d64ed2666bd6663251d31113}{moveMouse}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
 \DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_ac7622c26ff382c1210098ed4f803e985}{moveMouseRelative}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
@@ -33,9 +33,11 @@
 \DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a787088f082a2eb34e640c49560f34ffe}{mouseClick}}(\textcolor{keywordtype}{int}\ button);}
 \DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a530c7a35c572e81d56d3cbe599ee7e14}{mouseClickWindow}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
 \DoxyCodeLine{00099\ \ \ Window\ \mbox{\hyperlink{classEventController_a454b637efe485ea549aba5267daa8cf3}{getWindowUnderMouse}}();}
-\DoxyCodeLine{00101\ \ \ Window\ searchWindowByName(std::string\ name);}
-\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{void}\ activateWindow(Window\ window);}
-\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{void}\ keySequence(std::string\ sequence);}
-\DoxyCodeLine{00104\ \};}
+\DoxyCodeLine{00101\ \ \ \textcolor{comment}{//\ KEYBOARD\ EVENTS}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a615b3cbae208e40d57bf4470e2de8466}{enterText}}(std::string\ text);}
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a3ebc986f41027fcf4adfc15cd3fbebd2}{enterTextAdvanced}}(std::string\ text,\ Window\ window,\ uint\ delay);}
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a6a3067645b815154c3c0a52aaeada390}{keySequence}}(std::string\ sequence);}
+\DoxyCodeLine{00135\ \};}
 
 \end{DoxyCode}

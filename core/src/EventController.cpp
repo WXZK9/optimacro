@@ -20,6 +20,7 @@ void EventController::enterTextToWindow(std::string text, Window window) {
   xdo_enter_text_window(instance, window, text.c_str(), delay);
 }
 
+// MOUSE EVENTS
 void EventController::moveMouse(int x, int y) {
   xdo_move_mouse(instance, x, y, 0);
 }
@@ -39,7 +40,21 @@ void EventController::mouseDown(Window window, int button) {
 void EventController::mouseUp(Window window, int button) {
   xdo_mouse_up(instance, window, button);
 }
+std::tuple<int, int> EventController::getMouseLocation() {
+  int x, y, screen;
+  xdo_get_mouse_location(instance, &x, &y, &screen);
+  return std::make_tuple(x, y);
+}
 
+void EventController::mouseClick(int button) {
+  xdo_click_window(instance, CURRENTWINDOW, button);
+}
+
+void EventController::mouseClickWindow(Window window, int button) {
+  xdo_click_window(instance, window, button);
+}
+
+////////////////
 void EventController::activateWindow(Window window) {
   xdo_activate_window(instance, window);
   xdo_wait_for_window_active(instance, window, 1);
@@ -101,7 +116,9 @@ void EventController::attachController(sol::state &lua) {
   ec_type["moveMouseRelative"] = &EventController::moveMouseRelative;
   ec_type["moveMouseRelativeToWindow"] =
       &EventController::moveMouseRelativeToWindow;
-
+  ec_type["getMouseLocation"] = &EventController::getMouseLocation;
+  ec_type["mouseClick"] = &EventController::mouseClick;
+  ec_type["mouseClickWindow"] = &EventController::mouseClickWindow;
   //////
   ec_type["setGlobalDelay"] = &EventController::setGlobalDelay;
   lua["sleep"] = [](float seconds) { usleep(seconds * (1000000)); };

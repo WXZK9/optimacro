@@ -2,6 +2,7 @@
 #include "Controller.hpp"
 #include <X11/X.h>
 #include <string>
+#include <tuple>
 #include <xdo.h>
 
 struct UT_Window {
@@ -61,6 +62,29 @@ public:
    *    right, 4 is wheel up, 5 is wheel down.
    */
   void mouseDown(Window window, int button);
+  /**
+   * Get the current mouse location.
+   *
+   * @return A tuple of X and Y coordinates.
+   */
+  std::tuple<int, int> getMouseLocation();
+  /**
+   * Send a click for a specific mouse button at the current mouse location to
+   * the current window.
+   *
+   * @param button The mouse button. Generally, 1 is left, 2 is middle, 3 is
+   *    right, 4 is wheel up, 5 is wheel down.
+   */
+  void mouseClick(int button);
+  /**
+   * Send a click for a specific mouse button at the current mouse location to a
+   * specific window.
+   *
+   * @param window The window you want to send the event
+   * @param button The mouse button. Generally, 1 is left, 2 is middle, 3 is
+   *    right, 4 is wheel up, 5 is wheel down.
+   */
+  void mouseClickWindow(Window window, int button);
   ///////////////////////////////
   Window searchWindowByName(std::string name);
   void activateWindow(Window window);

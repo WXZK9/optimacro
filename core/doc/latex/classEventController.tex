@@ -1,0 +1,161 @@
+\doxysection{Event\+Controller Class Reference}
+\hypertarget{classEventController}{}\label{classEventController}\index{EventController@{EventController}}
+
+
+Inheritance diagram for Event\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{classEventController__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Event\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classEventController__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEventController_a9daad0167e1894b3b4f1837136ab901d}{attach\+Controller}} (sol\+::state \&lua)
+\item 
+\Hypertarget{classEventController_a615b3cbae208e40d57bf4470e2de8466}\label{classEventController_a615b3cbae208e40d57bf4470e2de8466} 
+void {\bfseries enter\+Text} (std\+::string text)
+\item 
+\Hypertarget{classEventController_a4bdf916bb66a3043fc243a11732bb7c5}\label{classEventController_a4bdf916bb66a3043fc243a11732bb7c5} 
+void {\bfseries set\+Global\+Delay} (int new\+Delay)
+\item 
+\Hypertarget{classEventController_aae1b43a892d6a137da0bab7f5f89df2d}\label{classEventController_aae1b43a892d6a137da0bab7f5f89df2d} 
+void {\bfseries enter\+Text\+To\+Window} (std\+::string text, Window window)
+\item 
+void \mbox{\hyperlink{classEventController_a2e08c3d8d64ed2666bd6663251d31113}{move\+Mouse}} (int x, int y)
+\item 
+void \mbox{\hyperlink{classEventController_ac7622c26ff382c1210098ed4f803e985}{move\+Mouse\+Relative}} (int x, int y)
+\item 
+void \mbox{\hyperlink{classEventController_a607269013d7dadc50ddd1e12a804005e}{move\+Mouse\+Relative\+To\+Window}} (Window window, int x, int y)
+\item 
+void \mbox{\hyperlink{classEventController_a4c5a04e3fcdc679404972b4ec641e502}{mouse\+Up}} (Window window, int button)
+\item 
+void \mbox{\hyperlink{classEventController_a06c535f0f631dd72014fa29cf69e5408}{mouse\+Down}} (Window window, int button)
+\item 
+\Hypertarget{classEventController_ab80573135951129ba9cf546d2434c4af}\label{classEventController_ab80573135951129ba9cf546d2434c4af} 
+Window {\bfseries search\+Window\+By\+Name} (std\+::string name)
+\item 
+\Hypertarget{classEventController_a3fcd359deadfe570e86b7cd34f5d14ac}\label{classEventController_a3fcd359deadfe570e86b7cd34f5d14ac} 
+void {\bfseries activate\+Window} (Window window)
+\item 
+\Hypertarget{classEventController_a6a3067645b815154c3c0a52aaeada390}\label{classEventController_a6a3067645b815154c3c0a52aaeada390} 
+void {\bfseries key\+Sequence} (std\+::string sequence)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classController}{Controller}}}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classEventController_a9353da545989d77079d1d998101b22e9}\label{classEventController_a9353da545989d77079d1d998101b22e9} 
+std\+::string {\bfseries lua\+Namespace} = "{}event"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classController}{Controller}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries lua\+Namespace}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classEventController_a9daad0167e1894b3b4f1837136ab901d}\index{EventController@{EventController}!attachController@{attachController}}
+\index{attachController@{attachController}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{attachController()}{attachController()}}
+{\footnotesize\ttfamily \label{classEventController_a9daad0167e1894b3b4f1837136ab901d} 
+void Event\+Controller\+::attach\+Controller (\begin{DoxyParamCaption}\item[{sol\+::state \&}]{lua}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classController}{Controller}}.
+
+\Hypertarget{classEventController_a06c535f0f631dd72014fa29cf69e5408}\index{EventController@{EventController}!mouseDown@{mouseDown}}
+\index{mouseDown@{mouseDown}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{mouseDown()}{mouseDown()}}
+{\footnotesize\ttfamily \label{classEventController_a06c535f0f631dd72014fa29cf69e5408} 
+void Event\+Controller\+::mouse\+Down (\begin{DoxyParamCaption}\item[{Window}]{window}{, }\item[{int}]{button}{}\end{DoxyParamCaption})}
+
+Send a mouse press (aka mouse down) for a given button at the current mouse location.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window you want to send the event to \\
+\hline
+{\em button} & The mouse button. Generally, 1 is left, 2 is middle, 3 is right, 4 is wheel up, 5 is wheel down. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_a4c5a04e3fcdc679404972b4ec641e502}\index{EventController@{EventController}!mouseUp@{mouseUp}}
+\index{mouseUp@{mouseUp}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{mouseUp()}{mouseUp()}}
+{\footnotesize\ttfamily \label{classEventController_a4c5a04e3fcdc679404972b4ec641e502} 
+void Event\+Controller\+::mouse\+Up (\begin{DoxyParamCaption}\item[{Window}]{window}{, }\item[{int}]{button}{}\end{DoxyParamCaption})}
+
+Send a mouse release (aka mouse up) for a given button at the current mouse location.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & The window you want to send the event to \\
+\hline
+{\em button} & The mouse button. Generally, 1 is left, 2 is middle, 3 is right, 4 is wheel up, 5 is wheel down. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_a2e08c3d8d64ed2666bd6663251d31113}\index{EventController@{EventController}!moveMouse@{moveMouse}}
+\index{moveMouse@{moveMouse}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{moveMouse()}{moveMouse()}}
+{\footnotesize\ttfamily \label{classEventController_a2e08c3d8d64ed2666bd6663251d31113} 
+void Event\+Controller\+::move\+Mouse (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+Move the mouse to a specific location.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the target X coordinate on the screen in pixels. \\
+\hline
+{\em y} & the target Y coordinate on the screen in pixels. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_ac7622c26ff382c1210098ed4f803e985}\index{EventController@{EventController}!moveMouseRelative@{moveMouseRelative}}
+\index{moveMouseRelative@{moveMouseRelative}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{moveMouseRelative()}{moveMouseRelative()}}
+{\footnotesize\ttfamily \label{classEventController_ac7622c26ff382c1210098ed4f803e985} 
+void Event\+Controller\+::move\+Mouse\+Relative (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+Move the mouse relative to it\textquotesingle{}s current position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the distance in pixels to move on the X axis. \\
+\hline
+{\em y} & the distance in pixels to move on the Y axis. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_a607269013d7dadc50ddd1e12a804005e}\index{EventController@{EventController}!moveMouseRelativeToWindow@{moveMouseRelativeToWindow}}
+\index{moveMouseRelativeToWindow@{moveMouseRelativeToWindow}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{moveMouseRelativeToWindow()}{moveMouseRelativeToWindow()}}
+{\footnotesize\ttfamily \label{classEventController_a607269013d7dadc50ddd1e12a804005e} 
+void Event\+Controller\+::move\+Mouse\+Relative\+To\+Window (\begin{DoxyParamCaption}\item[{Window}]{window}{, }\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+Move the mouse to a specific location relative to the top-\/left corner of a window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & the target window. \\
+\hline
+{\em x} & the target X coordinate on the screen in pixels. \\
+\hline
+{\em y} & the target Y coordinate on the screen in pixels. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Event\+Controller.\+hpp\item 
+src/Event\+Controller.\+cpp\end{DoxyCompactItemize}

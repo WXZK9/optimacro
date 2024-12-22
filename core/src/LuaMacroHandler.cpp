@@ -1,4 +1,5 @@
 #include "LuaMacroHandler.hpp"
+#include "EventController.hpp"
 
 void LuaMacroHandler::attachAllControllers() {
   for (auto v : controllers)

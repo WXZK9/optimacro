@@ -22,7 +22,17 @@ class EventController : public Controller {
 public:
   std::string luaNamespace = "event";
   EventController();
+  /**
+   * Attach the event controller to the lua state.
+   *
+   * @param lua Lua state to attach to.
+   */
   void attachController(sol::state &lua);
+  /**
+   * Set the default delay for all events in microseconds.
+   *
+   * @param newDelay the new delay in microseconds.
+   */
   void setGlobalDelay(int newDelay);
   Window searchWindowByName(std::string name);
   void activateWindow(Window window);

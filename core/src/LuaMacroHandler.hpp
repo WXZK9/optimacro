@@ -1,6 +1,5 @@
 #pragma once
 #include "Controller.hpp"
-#include "EventController.hpp"
 
 /**
  * @brief Class for handling lua macros.

@@ -32,8 +32,7 @@ Collaboration diagram for Event\+Controller\+:\nopagebreak
 \item 
 void \mbox{\hyperlink{classEventController_a9daad0167e1894b3b4f1837136ab901d}{attach\+Controller}} (sol\+::state \&lua)
 \item 
-\Hypertarget{classEventController_a4bdf916bb66a3043fc243a11732bb7c5}\label{classEventController_a4bdf916bb66a3043fc243a11732bb7c5} 
-void {\bfseries set\+Global\+Delay} (int new\+Delay)
+void \mbox{\hyperlink{classEventController_a4bdf916bb66a3043fc243a11732bb7c5}{set\+Global\+Delay}} (int new\+Delay)
 \item 
 \Hypertarget{classEventController_ab80573135951129ba9cf546d2434c4af}\label{classEventController_ab80573135951129ba9cf546d2434c4af} 
 Window {\bfseries search\+Window\+By\+Name} (std\+::string name)
@@ -91,7 +90,7 @@ This class provides functions for sending events to X11. The class is exposed in
 {\footnotesize\ttfamily \label{classEventController_a9daad0167e1894b3b4f1837136ab901d} 
 void Event\+Controller\+::attach\+Controller (\begin{DoxyParamCaption}\item[{sol\+::state \&}]{lua}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Method for attaching controller to lua state.
+Attach the event controller to the lua state.
 
 
 \begin{DoxyParams}{Parameters}
@@ -274,6 +273,19 @@ Move the mouse to a specific location relative to the top-\/left corner of a win
 {\em x} & the target X coordinate on the screen in pixels. \\
 \hline
 {\em y} & the target Y coordinate on the screen in pixels. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_a4bdf916bb66a3043fc243a11732bb7c5}\index{EventController@{EventController}!setGlobalDelay@{setGlobalDelay}}
+\index{setGlobalDelay@{setGlobalDelay}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{setGlobalDelay()}{setGlobalDelay()}}
+{\footnotesize\ttfamily \label{classEventController_a4bdf916bb66a3043fc243a11732bb7c5} 
+void Event\+Controller\+::set\+Global\+Delay (\begin{DoxyParamCaption}\item[{int}]{new\+Delay}{}\end{DoxyParamCaption})}
+
+Set the default delay for all events in microseconds.
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Delay} & the new delay in microseconds. \\
 \hline
 \end{DoxyParams}
 

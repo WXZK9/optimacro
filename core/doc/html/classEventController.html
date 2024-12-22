@@ -125,8 +125,7 @@ Collaboration diagram for EventController:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9daad0167e1894b3b4f1837136ab901d" id="r_a9daad0167e1894b3b4f1837136ab901d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9daad0167e1894b3b4f1837136ab901d">attachController</a> (sol::state &amp;lua)</td></tr>
 <tr class="separator:a9daad0167e1894b3b4f1837136ab901d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bdf916bb66a3043fc243a11732bb7c5" id="r_a4bdf916bb66a3043fc243a11732bb7c5"><td class="memItemLeft" align="right" valign="top"><a id="a4bdf916bb66a3043fc243a11732bb7c5" name="a4bdf916bb66a3043fc243a11732bb7c5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGlobalDelay</b> (int newDelay)</td></tr>
+<tr class="memitem:a4bdf916bb66a3043fc243a11732bb7c5" id="r_a4bdf916bb66a3043fc243a11732bb7c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bdf916bb66a3043fc243a11732bb7c5">setGlobalDelay</a> (int newDelay)</td></tr>
 <tr class="separator:a4bdf916bb66a3043fc243a11732bb7c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab80573135951129ba9cf546d2434c4af" id="r_ab80573135951129ba9cf546d2434c4af"><td class="memItemLeft" align="right" valign="top"><a id="ab80573135951129ba9cf546d2434c4af" name="ab80573135951129ba9cf546d2434c4af"></a>
 Window&#160;</td><td class="memItemRight" valign="bottom"><b>searchWindowByName</b> (std::string name)</td></tr>
@@ -195,7 +194,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>luaNamespace</
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Method for attaching controller to lua state.</p>
+<p>Attach the event controller to the lua state.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lua</td><td>Lua state to attach to. </td></tr>
@@ -528,6 +527,30 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>luaNamespace</
     <tr><td class="paramname">window</td><td>the target window. </td></tr>
     <tr><td class="paramname">x</td><td>the target X coordinate on the screen in pixels. </td></tr>
     <tr><td class="paramname">y</td><td>the target Y coordinate on the screen in pixels. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4bdf916bb66a3043fc243a11732bb7c5" name="a4bdf916bb66a3043fc243a11732bb7c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bdf916bb66a3043fc243a11732bb7c5">&#9670;&#160;</a></span>setGlobalDelay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventController::setGlobalDelay </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>newDelay</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the default delay for all events in microseconds.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newDelay</td><td>the new delay in microseconds. </td></tr>
   </table>
   </dd>
 </dl>

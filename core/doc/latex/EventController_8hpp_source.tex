@@ -19,25 +19,25 @@
 \DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00023\ \ \ std::string\ luaNamespace\ =\ \textcolor{stringliteral}{"{}event"{}};}
 \DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classEventController}{EventController}}();}
-\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a9daad0167e1894b3b4f1837136ab901d}{attachController}}(sol::state\ \&lua);}
-\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ setGlobalDelay(\textcolor{keywordtype}{int}\ newDelay);}
-\DoxyCodeLine{00027\ \ \ Window\ searchWindowByName(std::string\ name);}
-\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ activateWindow(Window\ window);}
-\DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ MOUSE\ EVENTS}}
-\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a2e08c3d8d64ed2666bd6663251d31113}{moveMouse}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
-\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_ac7622c26ff382c1210098ed4f803e985}{moveMouseRelative}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
-\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a607269013d7dadc50ddd1e12a804005e}{moveMouseRelativeToWindow}}(Window\ window,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
-\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a4c5a04e3fcdc679404972b4ec641e502}{mouseUp}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
-\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a06c535f0f631dd72014fa29cf69e5408}{mouseDown}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
-\DoxyCodeLine{00076\ \ \ std::tuple<int,\ int>\ \mbox{\hyperlink{classEventController_a137846703deaf95f2ab0bd9f4c910a0d}{getMouseLocation}}();}
-\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a787088f082a2eb34e640c49560f34ffe}{mouseClick}}(\textcolor{keywordtype}{int}\ button);}
-\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a530c7a35c572e81d56d3cbe599ee7e14}{mouseClickWindow}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
-\DoxyCodeLine{00099\ \ \ Window\ \mbox{\hyperlink{classEventController_a454b637efe485ea549aba5267daa8cf3}{getWindowUnderMouse}}();}
-\DoxyCodeLine{00101\ \ \ \textcolor{comment}{//\ KEYBOARD\ EVENTS}}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a615b3cbae208e40d57bf4470e2de8466}{enterText}}(std::string\ text);}
-\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a3ebc986f41027fcf4adfc15cd3fbebd2}{enterTextAdvanced}}(std::string\ text,\ Window\ window,\ uint\ delay);}
-\DoxyCodeLine{00133\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a6a3067645b815154c3c0a52aaeada390}{keySequence}}(std::string\ sequence);}
-\DoxyCodeLine{00135\ \};}
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a9daad0167e1894b3b4f1837136ab901d}{attachController}}(sol::state\ \&lua);}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a4bdf916bb66a3043fc243a11732bb7c5}{setGlobalDelay}}(\textcolor{keywordtype}{int}\ newDelay);}
+\DoxyCodeLine{00037\ \ \ Window\ searchWindowByName(std::string\ name);}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ activateWindow(Window\ window);}
+\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ MOUSE\ EVENTS}}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a2e08c3d8d64ed2666bd6663251d31113}{moveMouse}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_ac7622c26ff382c1210098ed4f803e985}{moveMouseRelative}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a607269013d7dadc50ddd1e12a804005e}{moveMouseRelativeToWindow}}(Window\ window,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a4c5a04e3fcdc679404972b4ec641e502}{mouseUp}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a06c535f0f631dd72014fa29cf69e5408}{mouseDown}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
+\DoxyCodeLine{00086\ \ \ std::tuple<int,\ int>\ \mbox{\hyperlink{classEventController_a137846703deaf95f2ab0bd9f4c910a0d}{getMouseLocation}}();}
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a787088f082a2eb34e640c49560f34ffe}{mouseClick}}(\textcolor{keywordtype}{int}\ button);}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a530c7a35c572e81d56d3cbe599ee7e14}{mouseClickWindow}}(Window\ window,\ \textcolor{keywordtype}{int}\ button);}
+\DoxyCodeLine{00109\ \ \ Window\ \mbox{\hyperlink{classEventController_a454b637efe485ea549aba5267daa8cf3}{getWindowUnderMouse}}();}
+\DoxyCodeLine{00111\ \ \ \textcolor{comment}{//\ KEYBOARD\ EVENTS}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a615b3cbae208e40d57bf4470e2de8466}{enterText}}(std::string\ text);}
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a3ebc986f41027fcf4adfc15cd3fbebd2}{enterTextAdvanced}}(std::string\ text,\ Window\ window,\ uint\ delay);}
+\DoxyCodeLine{00143\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEventController_a6a3067645b815154c3c0a52aaeada390}{keySequence}}(std::string\ sequence);}
+\DoxyCodeLine{00145\ \};}
 
 \end{DoxyCode}

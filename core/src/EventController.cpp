@@ -28,6 +28,28 @@ void EventController::keySequence(std::string sequence) {
   xdo_send_keysequence_window(instance, CURRENTWINDOW, sequence.c_str(),
                               defaultDelay);
 }
+
+void EventController::keySequenceAdvanced(std::string sequence, Window window,
+                                          uint delay) {
+  xdo_send_keysequence_window(instance, window, sequence.c_str(), delay);
+}
+
+void EventController::keySequenceDown(std::string sequence) {
+  xdo_send_keysequence_window_down(instance, CURRENTWINDOW, sequence.c_str(),
+                                   defaultDelay);
+}
+void EventController::keySequenceUp(std::string sequence) {
+  xdo_send_keysequence_window_up(instance, CURRENTWINDOW, sequence.c_str(),
+                                 defaultDelay);
+}
+void EventController::keySequenceDownAdvanced(std::string sequence,
+                                              Window window, uint delay) {
+  xdo_send_keysequence_window_down(instance, window, sequence.c_str(), delay);
+}
+void EventController::keySequenceUpAdvanced(std::string sequence, Window window,
+                                            uint delay) {
+  xdo_send_keysequence_window_up(instance, window, sequence.c_str(), delay);
+}
 /////////////
 
 // MOUSE EVENTS

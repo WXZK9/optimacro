@@ -126,7 +126,7 @@ public:
    */
   void enterTextAdvanced(std::string text, Window window, uint delay);
   /**
-   * Send a keysequence to the current window.
+   * Send a keysequence to the current window with default delay.
    *
    * This allows you to send keysequences by symbol name. Any combination
    * of X11 KeySym names separated by '+' are valid. Single KeySym names
@@ -141,5 +141,98 @@ public:
    * @param sequence The string keysequence to send.
    */
   void keySequence(std::string sequence);
+  /**
+   * Send key release (up) events for the given key sequence to the current
+   * window with default delay.
+   *
+   * This allows you to send keysequences by symbol name. Any combination
+   * of X11 KeySym names separated by '+' are valid. Single KeySym names
+   * are valid, too.
+   *
+   * Examples:
+   *   "l"
+   *   "semicolon"
+   *   "alt+Return"
+   *   "Alt_L+Tab"
+   *
+   * @param sequence The string keysequence to send.
+   */
+  void keySequenceUp(std::string sequence);
+  /**
+   * Send key press (down) events for the given key sequence to the current
+   * window with default delay.
+   *
+   * This allows you to send keysequences by symbol name. Any combination
+   * of X11 KeySym names separated by '+' are valid. Single KeySym names
+   * are valid, too.
+   *
+   * Examples:
+   *   "l"
+   *   "semicolon"
+   *   "alt+Return"
+   *   "Alt_L+Tab"
+   *
+   * @param sequence The string keysequence to send.
+   */
+  void keySequenceDown(std::string sequence);
+
+  /**
+   * Send a keysequence to the specified window with specified delay.
+   *
+   * This allows you to send keysequences by symbol name. Any combination
+   * of X11 KeySym names separated by '+' are valid. Single KeySym names
+   * are valid, too.
+   *
+   * Examples:
+   *   "l"
+   *   "semicolon"
+   *   "alt+Return"
+   *   "Alt_L+Tab"
+   *
+   * @param sequence The string keysequence to send.
+   * @param window The window you want to send keystrokes
+   * @param delay The delay between keystrokes in microseconds
+   */
+  void keySequenceAdvanced(std::string sequence, Window window, uint delay);
+
+  /**
+   * Send key release (up) events for the given key sequence to the specified
+   * window with specified delay.
+   *
+   * This allows you to send keysequences by symbol name. Any combination
+   * of X11 KeySym names separated by '+' are valid. Single KeySym names
+   * are valid, too.
+   *
+   * Examples:
+   *   "l"
+   *   "semicolon"
+   *   "alt+Return"
+   *   "Alt_L+Tab"
+   *
+   * @param sequence The string keysequence to send.
+   * @param window The window you want to send keystrokes
+   * @param delay The delay between keystrokes in microseconds
+   */
+  void keySequenceUpAdvanced(std::string sequence, Window window, uint delay);
+  /**
+   * Send key press (down) events for the given key sequence to the specified
+   * window with specified delay.
+   *
+   * This allows you to send keysequences by symbol name. Any combination
+   * of X11 KeySym names separated by '+' are valid. Single KeySym names
+   * are valid, too.
+   *
+   * Examples:
+   *   "l"
+   *   "semicolon"
+   *   "alt+Return"
+   *   "Alt_L+Tab"
+   *
+   * @param sequence The string keysequence to send.
+   * @param window The window you want to send keystrokes
+   * @param delay The delay between keystrokes in microseconds
+   */
+  void keySequenceDownAdvanced(std::string sequence, Window window, uint delay);
+
   ///////////
 };

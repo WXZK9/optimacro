@@ -11,16 +11,18 @@ Class for handling X11 events.
 
 
 
-Inheritance diagram for Event\+Controller\+:\nopagebreak
+Inheritance diagram for Event\+Controller\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=239pt]{classEventController__inherit__graph}
+\includegraphics[height=550pt]{classEventController__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Event\+Controller\+:\nopagebreak
+Collaboration diagram for Event\+Controller\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -63,6 +65,16 @@ void \mbox{\hyperlink{classEventController_a615b3cbae208e40d57bf4470e2de8466}{en
 void \mbox{\hyperlink{classEventController_a3ebc986f41027fcf4adfc15cd3fbebd2}{enter\+Text\+Advanced}} (std\+::string text, Window window, uint delay)
 \item 
 void \mbox{\hyperlink{classEventController_a6a3067645b815154c3c0a52aaeada390}{key\+Sequence}} (std\+::string sequence)
+\item 
+void \mbox{\hyperlink{classEventController_a06bb5d44d27386c1cafa359ea9c3d5aa}{key\+Sequence\+Up}} (std\+::string sequence)
+\item 
+void \mbox{\hyperlink{classEventController_aa543e5777056fece0a2a43acb7b78ae0}{key\+Sequence\+Down}} (std\+::string sequence)
+\item 
+void \mbox{\hyperlink{classEventController_a270d15ebd903197b2ff22267b34370f0}{key\+Sequence\+Advanced}} (std\+::string sequence, Window window, uint delay)
+\item 
+void \mbox{\hyperlink{classEventController_a505beea034f24debeeabb3e9c76db08a}{key\+Sequence\+Up\+Advanced}} (std\+::string sequence, Window window, uint delay)
+\item 
+void \mbox{\hyperlink{classEventController_ab52bb3330c463bae61d94fd64bfc349f}{key\+Sequence\+Down\+Advanced}} (std\+::string sequence, Window window, uint delay)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classController}{Controller}}}
 \doxysubsubsection*{Public Attributes}
@@ -159,7 +171,7 @@ Selected window
 {\footnotesize\ttfamily \label{classEventController_a6a3067645b815154c3c0a52aaeada390} 
 void Event\+Controller\+::key\+Sequence (\begin{DoxyParamCaption}\item[{std\+::string}]{sequence}{}\end{DoxyParamCaption})}
 
-Send a keysequence to the current window.
+Send a keysequence to the current window with default delay.
 
 This allows you to send keysequences by symbol name. Any combination of X11 Key\+Sym names separated by \textquotesingle{}+\textquotesingle{} are valid. Single Key\+Sym names are valid, too.
 
@@ -168,6 +180,103 @@ Examples\+: "{}l"{} "{}semicolon"{} "{}alt+\+Return"{} "{}\+Alt\+\_\+\+L+\+Tab"{
 
 \begin{DoxyParams}{Parameters}
 {\em sequence} & The string keysequence to send. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_a270d15ebd903197b2ff22267b34370f0}\index{EventController@{EventController}!keySequenceAdvanced@{keySequenceAdvanced}}
+\index{keySequenceAdvanced@{keySequenceAdvanced}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{keySequenceAdvanced()}{keySequenceAdvanced()}}
+{\footnotesize\ttfamily \label{classEventController_a270d15ebd903197b2ff22267b34370f0} 
+void Event\+Controller\+::key\+Sequence\+Advanced (\begin{DoxyParamCaption}\item[{std\+::string}]{sequence}{, }\item[{Window}]{window}{, }\item[{uint}]{delay}{}\end{DoxyParamCaption})}
+
+Send a keysequence to the specified window with specified delay.
+
+This allows you to send keysequences by symbol name. Any combination of X11 Key\+Sym names separated by \textquotesingle{}+\textquotesingle{} are valid. Single Key\+Sym names are valid, too.
+
+Examples\+: "{}l"{} "{}semicolon"{} "{}alt+\+Return"{} "{}\+Alt\+\_\+\+L+\+Tab"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The string keysequence to send. \\
+\hline
+{\em window} & The window you want to send keystrokes \\
+\hline
+{\em delay} & The delay between keystrokes in microseconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_aa543e5777056fece0a2a43acb7b78ae0}\index{EventController@{EventController}!keySequenceDown@{keySequenceDown}}
+\index{keySequenceDown@{keySequenceDown}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{keySequenceDown()}{keySequenceDown()}}
+{\footnotesize\ttfamily \label{classEventController_aa543e5777056fece0a2a43acb7b78ae0} 
+void Event\+Controller\+::key\+Sequence\+Down (\begin{DoxyParamCaption}\item[{std\+::string}]{sequence}{}\end{DoxyParamCaption})}
+
+Send key press (down) events for the given key sequence to the current window with default delay.
+
+This allows you to send keysequences by symbol name. Any combination of X11 Key\+Sym names separated by \textquotesingle{}+\textquotesingle{} are valid. Single Key\+Sym names are valid, too.
+
+Examples\+: "{}l"{} "{}semicolon"{} "{}alt+\+Return"{} "{}\+Alt\+\_\+\+L+\+Tab"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The string keysequence to send. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_ab52bb3330c463bae61d94fd64bfc349f}\index{EventController@{EventController}!keySequenceDownAdvanced@{keySequenceDownAdvanced}}
+\index{keySequenceDownAdvanced@{keySequenceDownAdvanced}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{keySequenceDownAdvanced()}{keySequenceDownAdvanced()}}
+{\footnotesize\ttfamily \label{classEventController_ab52bb3330c463bae61d94fd64bfc349f} 
+void Event\+Controller\+::key\+Sequence\+Down\+Advanced (\begin{DoxyParamCaption}\item[{std\+::string}]{sequence}{, }\item[{Window}]{window}{, }\item[{uint}]{delay}{}\end{DoxyParamCaption})}
+
+Send key press (down) events for the given key sequence to the specified window with specified delay.
+
+This allows you to send keysequences by symbol name. Any combination of X11 Key\+Sym names separated by \textquotesingle{}+\textquotesingle{} are valid. Single Key\+Sym names are valid, too.
+
+Examples\+: "{}l"{} "{}semicolon"{} "{}alt+\+Return"{} "{}\+Alt\+\_\+\+L+\+Tab"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The string keysequence to send. \\
+\hline
+{\em window} & The window you want to send keystrokes \\
+\hline
+{\em delay} & The delay between keystrokes in microseconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_a06bb5d44d27386c1cafa359ea9c3d5aa}\index{EventController@{EventController}!keySequenceUp@{keySequenceUp}}
+\index{keySequenceUp@{keySequenceUp}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{keySequenceUp()}{keySequenceUp()}}
+{\footnotesize\ttfamily \label{classEventController_a06bb5d44d27386c1cafa359ea9c3d5aa} 
+void Event\+Controller\+::key\+Sequence\+Up (\begin{DoxyParamCaption}\item[{std\+::string}]{sequence}{}\end{DoxyParamCaption})}
+
+Send key release (up) events for the given key sequence to the current window with default delay.
+
+This allows you to send keysequences by symbol name. Any combination of X11 Key\+Sym names separated by \textquotesingle{}+\textquotesingle{} are valid. Single Key\+Sym names are valid, too.
+
+Examples\+: "{}l"{} "{}semicolon"{} "{}alt+\+Return"{} "{}\+Alt\+\_\+\+L+\+Tab"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The string keysequence to send. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEventController_a505beea034f24debeeabb3e9c76db08a}\index{EventController@{EventController}!keySequenceUpAdvanced@{keySequenceUpAdvanced}}
+\index{keySequenceUpAdvanced@{keySequenceUpAdvanced}!EventController@{EventController}}
+\doxysubsubsection{\texorpdfstring{keySequenceUpAdvanced()}{keySequenceUpAdvanced()}}
+{\footnotesize\ttfamily \label{classEventController_a505beea034f24debeeabb3e9c76db08a} 
+void Event\+Controller\+::key\+Sequence\+Up\+Advanced (\begin{DoxyParamCaption}\item[{std\+::string}]{sequence}{, }\item[{Window}]{window}{, }\item[{uint}]{delay}{}\end{DoxyParamCaption})}
+
+Send key release (up) events for the given key sequence to the specified window with specified delay.
+
+This allows you to send keysequences by symbol name. Any combination of X11 Key\+Sym names separated by \textquotesingle{}+\textquotesingle{} are valid. Single Key\+Sym names are valid, too.
+
+Examples\+: "{}l"{} "{}semicolon"{} "{}alt+\+Return"{} "{}\+Alt\+\_\+\+L+\+Tab"{}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sequence} & The string keysequence to send. \\
+\hline
+{\em window} & The window you want to send keystrokes \\
+\hline
+{\em delay} & The delay between keystrokes in microseconds \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classEventController_a787088f082a2eb34e640c49560f34ffe}\index{EventController@{EventController}!mouseClick@{mouseClick}}

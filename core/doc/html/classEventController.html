@@ -102,9 +102,9 @@ Inheritance diagram for EventController:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEventController__inherit__graph.png" border="0" usemap="#aEventController_inherit__map" alt="Inheritance graph"/></div>
 <map name="aEventController_inherit__map" id="aEventController_inherit__map">
-<area shape="rect" title="Class for handling X11 events." alt="" coords="5,144,217,555"/>
+<area shape="rect" title="Class for handling X11 events." alt="" coords="5,144,217,661"/>
 <area shape="rect" href="classController.html" title="Base class for controllers." alt="" coords="49,5,173,96"/>
-<area shape="poly" title=" " alt="" coords="114,111,114,145,109,145,109,111"/>
+<area shape="poly" title=" " alt="" coords="114,111,114,144,109,144,109,111"/>
 </map>
 </div>
 <div class="dynheader">
@@ -112,11 +112,11 @@ Collaboration diagram for EventController:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEventController__coll__graph.png" border="0" usemap="#aEventController_coll__map" alt="Collaboration graph"/></div>
 <map name="aEventController_coll__map" id="aEventController_coll__map">
-<area shape="rect" title="Class for handling X11 events." alt="" coords="5,279,217,689"/>
+<area shape="rect" title="Class for handling X11 events." alt="" coords="5,279,217,796"/>
 <area shape="rect" href="classController.html" title="Base class for controllers." alt="" coords="180,139,304,229"/>
-<area shape="poly" title=" " alt="" coords="219,244,203,280,198,278,214,242"/>
+<area shape="poly" title=" " alt="" coords="223,244,210,280,205,278,218,242"/>
 <area shape="rect" title=" " alt="" coords="55,5,101,75"/>
-<area shape="poly" title=" " alt="" coords="77,75,72,139,70,184,72,229,75,261,70,262,67,230,65,184,67,139,72,74"/>
+<area shape="poly" title=" " alt="" coords="77,75,72,139,71,184,72,229,75,262,70,262,67,229,65,184,67,139,72,74"/>
 <area shape="poly" title=" " alt="" coords="102,59,180,126,176,130,99,63"/>
 </map>
 </div>
@@ -157,6 +157,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>activateWindow</b> (W
 <tr class="separator:a3ebc986f41027fcf4adfc15cd3fbebd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a3067645b815154c3c0a52aaeada390" id="r_a6a3067645b815154c3c0a52aaeada390"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a3067645b815154c3c0a52aaeada390">keySequence</a> (std::string sequence)</td></tr>
 <tr class="separator:a6a3067645b815154c3c0a52aaeada390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06bb5d44d27386c1cafa359ea9c3d5aa" id="r_a06bb5d44d27386c1cafa359ea9c3d5aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06bb5d44d27386c1cafa359ea9c3d5aa">keySequenceUp</a> (std::string sequence)</td></tr>
+<tr class="separator:a06bb5d44d27386c1cafa359ea9c3d5aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa543e5777056fece0a2a43acb7b78ae0" id="r_aa543e5777056fece0a2a43acb7b78ae0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa543e5777056fece0a2a43acb7b78ae0">keySequenceDown</a> (std::string sequence)</td></tr>
+<tr class="separator:aa543e5777056fece0a2a43acb7b78ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a270d15ebd903197b2ff22267b34370f0" id="r_a270d15ebd903197b2ff22267b34370f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a270d15ebd903197b2ff22267b34370f0">keySequenceAdvanced</a> (std::string sequence, Window window, uint delay)</td></tr>
+<tr class="separator:a270d15ebd903197b2ff22267b34370f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a505beea034f24debeeabb3e9c76db08a" id="r_a505beea034f24debeeabb3e9c76db08a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a505beea034f24debeeabb3e9c76db08a">keySequenceUpAdvanced</a> (std::string sequence, Window window, uint delay)</td></tr>
+<tr class="separator:a505beea034f24debeeabb3e9c76db08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab52bb3330c463bae61d94fd64bfc349f" id="r_ab52bb3330c463bae61d94fd64bfc349f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab52bb3330c463bae61d94fd64bfc349f">keySequenceDownAdvanced</a> (std::string sequence, Window window, uint delay)</td></tr>
+<tr class="separator:ab52bb3330c463bae61d94fd64bfc349f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classController"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classController')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classController.html">Controller</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -317,12 +327,175 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>luaNamespace</
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Send a keysequence to the current window.</p>
+<p>Send a keysequence to the current window with default delay.</p>
 <p>This allows you to send keysequences by symbol name. Any combination of X11 KeySym names separated by '+' are valid. Single KeySym names are valid, too.</p>
 <p>Examples: "l" "semicolon" "alt+Return" "Alt_L+Tab"</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sequence</td><td>The string keysequence to send. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a270d15ebd903197b2ff22267b34370f0" name="a270d15ebd903197b2ff22267b34370f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a270d15ebd903197b2ff22267b34370f0">&#9670;&#160;</a></span>keySequenceAdvanced()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventController::keySequenceAdvanced </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>sequence</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Window</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>delay</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send a keysequence to the specified window with specified delay.</p>
+<p>This allows you to send keysequences by symbol name. Any combination of X11 KeySym names separated by '+' are valid. Single KeySym names are valid, too.</p>
+<p>Examples: "l" "semicolon" "alt+Return" "Alt_L+Tab"</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sequence</td><td>The string keysequence to send. </td></tr>
+    <tr><td class="paramname">window</td><td>The window you want to send keystrokes </td></tr>
+    <tr><td class="paramname">delay</td><td>The delay between keystrokes in microseconds </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa543e5777056fece0a2a43acb7b78ae0" name="aa543e5777056fece0a2a43acb7b78ae0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa543e5777056fece0a2a43acb7b78ae0">&#9670;&#160;</a></span>keySequenceDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventController::keySequenceDown </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>sequence</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send key press (down) events for the given key sequence to the current window with default delay.</p>
+<p>This allows you to send keysequences by symbol name. Any combination of X11 KeySym names separated by '+' are valid. Single KeySym names are valid, too.</p>
+<p>Examples: "l" "semicolon" "alt+Return" "Alt_L+Tab"</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sequence</td><td>The string keysequence to send. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab52bb3330c463bae61d94fd64bfc349f" name="ab52bb3330c463bae61d94fd64bfc349f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab52bb3330c463bae61d94fd64bfc349f">&#9670;&#160;</a></span>keySequenceDownAdvanced()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventController::keySequenceDownAdvanced </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>sequence</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Window</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>delay</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send key press (down) events for the given key sequence to the specified window with specified delay.</p>
+<p>This allows you to send keysequences by symbol name. Any combination of X11 KeySym names separated by '+' are valid. Single KeySym names are valid, too.</p>
+<p>Examples: "l" "semicolon" "alt+Return" "Alt_L+Tab"</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sequence</td><td>The string keysequence to send. </td></tr>
+    <tr><td class="paramname">window</td><td>The window you want to send keystrokes </td></tr>
+    <tr><td class="paramname">delay</td><td>The delay between keystrokes in microseconds </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a06bb5d44d27386c1cafa359ea9c3d5aa" name="a06bb5d44d27386c1cafa359ea9c3d5aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06bb5d44d27386c1cafa359ea9c3d5aa">&#9670;&#160;</a></span>keySequenceUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventController::keySequenceUp </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>sequence</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send key release (up) events for the given key sequence to the current window with default delay.</p>
+<p>This allows you to send keysequences by symbol name. Any combination of X11 KeySym names separated by '+' are valid. Single KeySym names are valid, too.</p>
+<p>Examples: "l" "semicolon" "alt+Return" "Alt_L+Tab"</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sequence</td><td>The string keysequence to send. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a505beea034f24debeeabb3e9c76db08a" name="a505beea034f24debeeabb3e9c76db08a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a505beea034f24debeeabb3e9c76db08a">&#9670;&#160;</a></span>keySequenceUpAdvanced()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EventController::keySequenceUpAdvanced </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>sequence</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Window</td>          <td class="paramname"><span class="paramname"><em>window</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint</td>          <td class="paramname"><span class="paramname"><em>delay</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send key release (up) events for the given key sequence to the specified window with specified delay.</p>
+<p>This allows you to send keysequences by symbol name. Any combination of X11 KeySym names separated by '+' are valid. Single KeySym names are valid, too.</p>
+<p>Examples: "l" "semicolon" "alt+Return" "Alt_L+Tab"</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sequence</td><td>The string keysequence to send. </td></tr>
+    <tr><td class="paramname">window</td><td>The window you want to send keystrokes </td></tr>
+    <tr><td class="paramname">delay</td><td>The delay between keystrokes in microseconds </td></tr>
   </table>
   </dd>
 </dl>

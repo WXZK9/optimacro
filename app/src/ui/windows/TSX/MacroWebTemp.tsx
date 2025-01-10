@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const MacroWebTemp: React.FC = () => {
   const navigate = useNavigate();
   
@@ -19,21 +18,26 @@ const MacroWebTemp: React.FC = () => {
     }));
   };
 
-  const saveJsonFile = () => {
-    const fileData = JSON.stringify(formData, null, 2);
-    const blob = new Blob([fileData], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "macro-data.json"; 
-    a.click();
-    URL.revokeObjectURL(url);
+  // Save data to a JSON file
+  const saveToJson = () => {
+    // Create a JSON blob from the form data
+    const jsonData = JSON.stringify(formData, null, 2);
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    const link = document.createElement("a");
+    
+    // Set up the download link
+    link.href = URL.createObjectURL(blob);
+    link.download = "macroData.json"; // Filename for the downloaded JSON file
+    
+    // Programmatically click the link to trigger the download
+    link.click();
   };
 
   return (
     <div className="Application">
       <div style={{ textAlign: "center", marginTop: "2rem" }}>
         <h1>Web Macro Screen</h1>
+        
         {/* Input Fields */}
         <div style={{ marginBottom: "1rem" }}>
           <label>
@@ -76,10 +80,8 @@ const MacroWebTemp: React.FC = () => {
 
         {/* Buttons */}
         <div>
-          <button onClick={saveJsonFile} style={{ marginRight: "1rem" }}>
-            Save to JSON
-          </button>
           <button onClick={() => navigate("/createMacros")}>Back</button>
+          <button onClick={saveToJson}>Save as JSON</button>
         </div>
       </div>
     </div>

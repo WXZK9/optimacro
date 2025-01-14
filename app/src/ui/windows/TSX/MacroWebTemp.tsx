@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const MacroWebTemp: React.FC = () => {
   const navigate = useNavigate();
-  
+
   const [formData, setFormData] = useState({
     link: "",
     search: "",
@@ -19,15 +18,19 @@ const MacroWebTemp: React.FC = () => {
     }));
   };
 
-  const saveJsonFile = () => {
-    const fileData = JSON.stringify(formData, null, 2);
-    const blob = new Blob([fileData], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "macro-data.json"; 
-    a.click();
-    URL.revokeObjectURL(url);
+  const saveJsonFile = async () => {
+    try {
+      // Send data to the main process using IPC
+      const savedFilePath = await window.electron.saveJsonToFile(formData);
+      if (savedFilePath) {
+        alert(`File saved successfully to: ${savedFilePath}`);
+      } else {
+        alert("Failed to save file.");
+      }
+    } catch (error) {
+      console.error('Error saving JSON:', error);
+      alert("An error occurred while saving the file.");
+    }
   };
 
   return (

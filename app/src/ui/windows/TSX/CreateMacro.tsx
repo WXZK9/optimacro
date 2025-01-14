@@ -1,118 +1,222 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../CSS/CreateMacro.css";
 
-interface ButtonType {
-  id: number;
-  label: string;
-  type: "web" | "console" | "system";
-}
+// Block types
+const blockTypes = [
+  "for",
+  "if",
+  "zmienna",
+  "attachController",
+  "enterText",
+  "enterTextAdvanced",
+  "getMouseLocation",
+  "getWindowUnderMouse",
+  "keySequence",
+  "keySequenceAdvanced",
+  "mouseClick",
+  "mouseClickWindow",
+  "moveMouse",
+  "setGlobalDelay",
+  "runFromFile",
+];
 
 const CreateMacro: React.FC = () => {
-  const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState(1);
+  // State to manage selected blocks and dynamic inputs
+  const [blocks, setBlocks] = useState<any[]>([]);
 
-  // buttons
-  const buttons: ButtonType[] = [
-    { id: 1, label: "Option 1", type: "web" },
-    { id: 2, label: "Option 2", type: "console" },
-    { id: 3, label: "Option 3", type: "system" },
-    { id: 4, label: "Option 4", type: "web" },
-    { id: 5, label: "Option 5", type: "console" },
-    { id: 6, label: "Option 6", type: "system" },
-    { id: 7, label: "Option 7", type: "web" },
-    { id: 8, label: "Option 8", type: "console" },
-    { id: 9, label: "Option 9", type: "system" },
-    { id: 10, label: "Option 10", type: "web" },
-  ];
-
-  const itemsPerPage = 8;
-
-  // Pagination 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentButtons = buttons.slice(indexOfFirstItem, indexOfLastItem);
-
-  const nextPage = () => {
-    if (currentPage < Math.ceil(buttons.length / itemsPerPage)) {
-      setCurrentPage(currentPage + 1);
-    }
+  // Function to handle adding a block
+  const handleBlockAdd = (selectedBlock: string) => {
+    const newBlock = { type: selectedBlock, id: Date.now() }; // Unique ID to distinguish blocks
+    setBlocks([...blocks, newBlock]);
   };
 
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
+  // Function to handle removal of a block
+  const handleBlockRemove = (blockId: number) => {
+    setBlocks(blocks.filter((block) => block.id !== blockId));
   };
 
-  const getButtonColor = (type: string) => {
-    switch (type) {
-      case "web":
-        return "blue";
-      case "console":
-        return "red";
-      case "system":
-        return "brown";
-      default:
-        return "gray";
-    }
+  // Function to handle changes in block-specific inputs (e.g., for 'if' statement)
+  const handleInputChange = (blockId: number, inputName: string, value: string) => {
+    setBlocks(
+      blocks.map((block) =>
+        block.id === blockId ? { ...block, [inputName]: value } : block
+      )
+    );
   };
-  const handleNavigate = (type: string) => {
-    switch (type) {
-      case "web":
-        navigate("/macro-web-temp");
-        break;
-      case "console":
-        navigate("/macro-console-temp");
-        break;
-      case "system":
-        navigate("/macro-system-temp");
-        break;
-      default:
-        navigate("/");
-    }
+
+  // Function to handle selecting a block for the 'if' statement
+  const handleStatementSelection = (blockId: number, selectedBlockType: string) => {
+    const newStatementBlock = { type: selectedBlockType, id: Date.now() }; // Create a new statement block
+    setBlocks(
+      blocks.map((block) =>
+        block.id === blockId
+          ? { ...block, statement: [...(block.statement || []), newStatementBlock] }
+          : block
+      )
+    );
+  };
+
+  // Function to handle removal of a block from the statement dropdown in 'if' block
+  const handleStatementRemove = (blockId: number, statementId: number) => {
+    setBlocks(
+      blocks.map((block) =>
+        block.id === blockId
+          ? {
+              ...block,
+              statement: block.statement.filter((stmt: any) => stmt.id !== statementId),
+            }
+          : block
+      )
+    );
   };
 
   return (
     <div className="create-macro-container">
-      <h1 className="header">Macro Tamplates</h1>
-      <div className="button-grid">
-        {currentButtons.map((button) => (
-          <button
-            key={button.id}
-            onClick={() => handleNavigate(button.type)}
-            style={{
-              backgroundColor: getButtonColor(button.type),
-              color: "white",
-            }}
-            className="grid-button"
-          >
-            {button.label} ({button.type})
-          </button>
+      <h2>Create Lua Macro</h2>
+
+      {/* Select dropdown to choose block */}
+      <label htmlFor="block-select">Select Block Type:</label>
+      <select
+        id="block-select"
+        onChange={(e) => handleBlockAdd(e.target.value)}
+      >
+        <option value="">--Select Block--</option>
+        {blockTypes.map((blockType, index) => (
+          <option key={index} value={blockType}>
+            {blockType}
+          </option>
+        ))}
+      </select>
+
+      {/* Render the selected blocks with dynamic inputs */}
+      <div className="added-blocks">
+        {blocks.map((block) => (
+          <div key={block.id} className="block-item">
+            <div className="block-header">
+              <h3>{block.type} Block</h3>
+              <button onClick={() => handleBlockRemove(block.id)}>Remove</button>
+            </div>
+
+            {/* Handle different block types */}
+            {block.type === "for" && (
+              <div>
+                <label>From:</label>
+                <input
+                  type="number"
+                  value={block.from || ""}
+                  onChange={(e) => handleInputChange(block.id, "from", e.target.value)}
+                />
+                <label>To:</label>
+                <input
+                  type="number"
+                  value={block.to || ""}
+                  onChange={(e) => handleInputChange(block.id, "to", e.target.value)}
+                />
+                <label>Frequency:</label>
+                <input
+                  type="number"
+                  value={block.freq || ""}
+                  onChange={(e) => handleInputChange(block.id, "freq", e.target.value)}
+                />
+              </div>
+            )}
+
+            {block.type === "if" && (
+              <div>
+                <label>Condition:</label>
+                <input
+                  type="text"
+                  value={block.condition || ""}
+                  onChange={(e) => handleInputChange(block.id, "condition", e.target.value)}
+                />
+
+                <label>Statement:</label>
+                {/* Dropdown for choosing another block as the statement */}
+                <select
+                  onChange={(e) => handleStatementSelection(block.id, e.target.value)}
+                >
+                  <option value="">--Select Statement Block--</option>
+                  {blockTypes.map((blockType, index) => (
+                    <option key={index} value={blockType}>
+                      {blockType}
+                    </option>
+                  ))}
+                </select>
+
+                {/* Render the added statement blocks */}
+                <div className="statement-blocks">
+                  {block.statement &&
+                    block.statement.map((stmt: any) => (
+                      <div key={stmt.id} className="statement-block">
+                        <h4>{stmt.type} Block</h4>
+                        <button
+                          onClick={() => handleStatementRemove(block.id, stmt.id)}
+                        >
+                          Remove
+                        </button>
+                        {/* Render inputs for the statement block */}
+                        {stmt.type === "for" && (
+                          <div>
+                            <label>From:</label>
+                            <input
+                              type="number"
+                              value={stmt.from || ""}
+                              onChange={(e) =>
+                                handleInputChange(stmt.id, "from", e.target.value)
+                              }
+                            />
+                            <label>To:</label>
+                            <input
+                              type="number"
+                              value={stmt.to || ""}
+                              onChange={(e) =>
+                                handleInputChange(stmt.id, "to", e.target.value)
+                              }
+                            />
+                            <label>Frequency:</label>
+                            <input
+                              type="number"
+                              value={stmt.freq || ""}
+                              onChange={(e) =>
+                                handleInputChange(stmt.id, "freq", e.target.value)
+                              }
+                            />
+                          </div>
+                        )}
+                        {/* Handle other statement types similarly */}
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
+
+            {block.type === "zmienna" && (
+              <div>
+                <label>Type:</label>
+                <input
+                  type="text"
+                  value={block.typeName || ""}
+                  onChange={(e) => handleInputChange(block.id, "typeName", e.target.value)}
+                />
+                <label>Name:</label>
+                <input
+                  type="text"
+                  value={block.name || ""}
+                  onChange={(e) => handleInputChange(block.id, "name", e.target.value)}
+                />
+                <label>Value:</label>
+                <input
+                  type="text"
+                  value={block.value || ""}
+                  onChange={(e) => handleInputChange(block.id, "value", e.target.value)}
+                />
+              </div>
+            )}
+
+            {/* You can add more blocks similarly */}
+          </div>
         ))}
       </div>
-      <div className="pagination-controls">
-        <button
-          className="nav-button"
-          onClick={prevPage}
-          disabled={currentPage === 1}
-        >
-          ← Previous
-        </button>
-        <span>
-          Page {currentPage} of {Math.ceil(buttons.length / itemsPerPage)}
-        </span>
-        <button
-          className="nav-button"
-          onClick={nextPage}
-          disabled={currentPage === Math.ceil(buttons.length / itemsPerPage)}
-        >
-          Next →
-        </button>
-      </div>
-      <button className="back-button" onClick={() => navigate("/")}>
-        Go Back
-      </button>
     </div>
   );
 };

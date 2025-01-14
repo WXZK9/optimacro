@@ -1,0 +1,77 @@
+\doxysection{Controller Class Reference}
+\hypertarget{classController}{}\label{classController}\index{Controller@{Controller}}
+
+
+Base class for controllers.  
+
+
+
+
+{\ttfamily \#include $<$Controller.\+hpp$>$}
+
+
+
+Inheritance diagram for Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classController__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{classController__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classController_a2d3c5594fc0372f92dc89b806d519b27}{attach\+Controller}} (sol\+::state \&lua)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classController_a5b7bf0334c2a1f27d7f5e2c34e774cea}{lua\+Namespace}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for controllers. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classController_a2d3c5594fc0372f92dc89b806d519b27}\index{Controller@{Controller}!attachController@{attachController}}
+\index{attachController@{attachController}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{attachController()}{attachController()}}
+{\footnotesize\ttfamily \label{classController_a2d3c5594fc0372f92dc89b806d519b27} 
+virtual void Controller\+::attach\+Controller (\begin{DoxyParamCaption}\item[{sol\+::state \&}]{lua}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Method for attaching controller to lua state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lua} & Lua state to attach to. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classEventController_a9daad0167e1894b3b4f1837136ab901d}{Event\+Controller}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classController_a5b7bf0334c2a1f27d7f5e2c34e774cea}\index{Controller@{Controller}!luaNamespace@{luaNamespace}}
+\index{luaNamespace@{luaNamespace}!Controller@{Controller}}
+\doxysubsubsection{\texorpdfstring{luaNamespace}{luaNamespace}}
+{\footnotesize\ttfamily \label{classController_a5b7bf0334c2a1f27d7f5e2c34e774cea} 
+std\+::string Controller\+::lua\+Namespace}
+
+Name of lua namespace to use. This will be used as the base class name in lua scripts 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/Controller.\+hpp\end{DoxyCompactItemize}

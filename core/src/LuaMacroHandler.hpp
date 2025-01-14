@@ -1,6 +1,13 @@
 #pragma once
 #include "Controller.hpp"
-#include "EventController.hpp"
+
+/**
+ * @brief Class for handling lua macros.
+ *
+ * This class provides functions for running lua macros.
+ * It is also responsible for creating and attaching controllers for various
+ * functionality.
+ */
 class LuaMacroHandler {
   sol::state lua;
   std::vector<Controller *>
@@ -10,5 +17,10 @@ class LuaMacroHandler {
 
 public:
   LuaMacroHandler();
+  /**
+   * Runs lua macro from file.
+   *
+   * @param name Name of file to run.
+   */
   void runFromFile(std::string name);
 };

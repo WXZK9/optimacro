@@ -1,0 +1,5 @@
+<map id="Controller" name="Controller">
+<area shape="rect" id="Node000001" title="Base class for controllers." alt="" coords="49,5,173,96"/>
+<area shape="rect" id="Node000002" href="$classEventController.html" title="Class for handling X11 events." alt="" coords="5,144,217,661"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,111,114,144,109,144,109,111"/>
+</map>

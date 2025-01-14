@@ -18,25 +18,26 @@ const MacroWebTemp: React.FC = () => {
     }));
   };
 
-  const saveJsonFile = async () => {
-    try {
-      // Send data to the main process using IPC
-      const savedFilePath = await window.electron.saveJsonToFile(formData);
-      if (savedFilePath) {
-        alert(`File saved successfully to: ${savedFilePath}`);
-      } else {
-        alert("Failed to save file.");
-      }
-    } catch (error) {
-      console.error('Error saving JSON:', error);
-      alert("An error occurred while saving the file.");
-    }
+  // Save data to a JSON file
+  const saveToJson = () => {
+    // Create a JSON blob from the form data
+    const jsonData = JSON.stringify(formData, null, 2);
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    const link = document.createElement("a");
+    
+    // Set up the download link
+    link.href = URL.createObjectURL(blob);
+    link.download = "macroData.json"; // Filename for the downloaded JSON file
+    
+    // Programmatically click the link to trigger the download
+    link.click();
   };
 
   return (
     <div className="Application">
       <div style={{ textAlign: "center", marginTop: "2rem" }}>
         <h1>Web Macro Screen</h1>
+        
         {/* Input Fields */}
         <div style={{ marginBottom: "1rem" }}>
           <label>
@@ -79,10 +80,8 @@ const MacroWebTemp: React.FC = () => {
 
         {/* Buttons */}
         <div>
-          <button onClick={saveJsonFile} style={{ marginRight: "1rem" }}>
-            Save to JSON
-          </button>
           <button onClick={() => navigate("/createMacros")}>Back</button>
+          <button onClick={saveToJson}>Save as JSON</button>
         </div>
       </div>
     </div>

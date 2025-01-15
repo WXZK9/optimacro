@@ -20,6 +20,101 @@ const blockTypes = [
   "runFromFile",
 ];
 
+import blocksMethods from "../Blocks/Blocks.ts"; // Import the blocks.ts file
+
+const mapBlocksToLua = (blockData: any[]): string[] => {
+  return blockData.map((block) => {
+    const { type } = block;
+
+    switch (type) {
+      case "for": {
+        const { from, to, freq } = block;
+        return blocksMethods.for(from, to, freq).beginning;
+      }
+
+      case "if": {
+        const { condition, statement } = block;
+        const conditionAction = blocksMethods.if(condition).action;
+
+        
+        const nestedStatements = statement
+          ? mapBlocksToLua(statement).join("\n")
+          : "";
+
+        return `${conditionAction}\n${nestedStatements}\nend`;
+      }
+
+      case "zmienna": {
+        const { typeName, name, value } = block;
+        return blocksMethods.zmienna(typeName, name, value).combined;
+      }
+
+      case "attachController": {
+        const { luaState } = block;
+        return blocksMethods.attachController(luaState).action;
+      }
+
+      case "enterText": {
+        const { text } = block;
+        return blocksMethods.enterText(text).action;
+      }
+
+      case "enterTextAdvanced": {
+        const { text, window, delay } = block;
+        return blocksMethods.enterTextAdvanced(text, window, delay).action;
+      }
+
+      case "getMouseLocation": {
+        return blocksMethods.getMouseLocation().action;
+      }
+
+      case "getWindowUnderMouse": {
+        return blocksMethods.getWindowUnderMouse().action;
+      }
+
+      case "keySequence": {
+        const { sequence } = block;
+        return blocksMethods.keySequence(sequence).action;
+      }
+
+      case "keySequenceAdvanced": {
+        const { sequence, window, delay } = block;
+        return blocksMethods.keySequenceAdvanced(sequence, window, delay).action;
+      }
+
+      case "mouseClick": {
+        const { button } = block;
+        return blocksMethods.mouseClick(button).action;
+      }
+
+      case "mouseClickWindow": {
+        const { window, button } = block;
+        return blocksMethods.mouseClickWindow(window, button).action;
+      }
+
+      case "moveMouse": {
+        const { x, y } = block;
+        return blocksMethods.moveMouse(x, y).action;
+      }
+
+      case "setGlobalDelay": {
+        const { newDelay } = block;
+        return blocksMethods.setGlobalDelay(newDelay).action;
+      }
+
+      case "runFromFile": {
+        const { name } = block;
+        return blocksMethods.runFromFile(name).action;
+      }
+
+      default: {
+        return "// Unknown block type";
+      }
+    }
+  });
+};
+
+
 const CreateMacro: React.FC = () => {
   // State to manage selected blocks and dynamic inputs
   const [blocks, setBlocks] = useState<any[]>([]);
@@ -183,7 +278,177 @@ const CreateMacro: React.FC = () => {
                             />
                           </div>
                         )}
-                        {/* Handle other statement types similarly */}
+                        {stmt.type === "zmienna" && (
+                          <div>
+                            <label>Type:</label>
+                            <input
+                              type="text"
+                              value={stmt.typeName || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "typeName", e.target.value)}
+                            />
+                            <label>Name:</label>
+                            <input
+                              type="text"
+                              value={stmt.name || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "name", e.target.value)}
+                            />
+                            <label>Value:</label>
+                            <input
+                              type="text"
+                              value={stmt.value || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "value", e.target.value)}
+                            />
+                          </div>
+                        )}
+
+                        {stmt.type === "attachController" && (
+                          <div>
+                            <label>LuaState:</label>
+                            <input
+                              type="text"
+                              value={stmt.luaState || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "luaState:", e.target.value)}
+                            />
+                          </div>
+                        )}
+
+
+                        {stmt.type === "enterText" && (
+                          <div>
+                            <label>Text:</label>
+                            <input
+                              type="text"
+                              value={stmt.text || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "text", e.target.value)}
+                            />
+                          </div>
+                        )}
+
+                        {stmt.type === "enterTextAdvanced" && (
+                          <div>
+                            <label>Text:</label>
+                            <input
+                              type="text"
+                              value={stmt.text || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "typeName", e.target.value)}
+                            />
+                            <label>Window:</label>
+                            <input
+                              type="number"
+                              value={stmt.window || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "window", e.target.value)}
+                            />
+                            <label>Delay:</label>
+                            <input
+                              type="number"
+                              value={stmt.delay || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "delay", e.target.value)}
+                            />
+                          </div>
+                        )}
+                        
+                        {stmt.type === "keySequence" && (
+                          <div>
+                            <label>Sequence:</label>
+                            <input
+                              type="text"
+                              value={stmt.sequence || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "sequence", e.target.value)}
+                            />
+                          </div>
+                        )}
+
+                        {stmt.type === "keySequenceAdvanced" && (
+                          <div>
+                            <label>Sqeuence:</label>
+                            <input
+                              type="text"
+                              value={stmt.sequence || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "sequence", e.target.value)}
+                            />
+                            <label>Window:</label>
+                            <input
+                              type="number"
+                              value={stmt.window || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "window", e.target.value)}
+                            />
+                            <label>delay:</label>
+                            <input
+                              type="number"
+                              value={stmt.delay || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "delay", e.target.value)}
+                            />
+                          </div>
+                        )}
+
+                        {stmt.type === "mouseClick" && (
+                          <div>
+                            <label>Button:</label>
+                            <input
+                              type="text"
+                              value={stmt.button || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "button", e.target.value)}
+                            />
+                          </div>
+                        )}
+
+
+                        {stmt.type === "mouseClickWindow" && (
+                          <div>
+                            <label>window:</label>
+                            <input
+                              type="number"
+                              value={stmt.window || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "window", e.target.value)}
+                            />
+                            <label>button:</label>
+                            <input
+                              type="text"
+                              value={stmt.button || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "button", e.target.value)}
+                            />
+                          </div>
+                        )}
+
+                        {stmt.type === "moveMouse" && (
+                          <div>
+                            <label>X:</label>
+                            <input
+                              type="number"
+                              value={stmt.x || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "x", e.target.value)}
+                            />
+                            <label>Y:</label>
+                            <input
+                              type="number"
+                              value={stmt.y || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "y", e.target.value)}
+                            />
+                          </div>
+                        )}
+
+                        {stmt.type === "setGlobalDelay" && (
+                          <div>
+                            <label>newDelay:</label>
+                            <input
+                              type="number"
+                              value={stmt.newDelay || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "newDelay", e.target.value)}
+                            />
+                          </div>
+                        )}
+
+                        {stmt.type === "runFromFile" && (
+                          <div>
+                            <label>Name:</label>
+                            <input
+                              type="text"
+                              value={stmt.name || ""}
+                              onChange={(e) => handleInputChange(stmt.id, "name", e.target.value)}
+                            />
+                          </div>
+                        )}
+                      
                       </div>
                     ))}
                 </div>
@@ -213,7 +478,153 @@ const CreateMacro: React.FC = () => {
               </div>
             )}
 
-            {/* You can add more blocks similarly */}
+            {block.type === "attachController" && (
+              <div>
+                <label>LuaState:</label>
+                <input
+                  type="text"
+                  value={block.luaState || ""}
+                  onChange={(e) => handleInputChange(block.id, "luaState:", e.target.value)}
+                />
+              </div>
+            )}
+
+
+            {block.type === "enterText" && (
+              <div>
+                <label>Text:</label>
+                <input
+                  type="text"
+                  value={block.text || ""}
+                  onChange={(e) => handleInputChange(block.id, "text", e.target.value)}
+                />
+              </div>
+            )}
+
+            {block.type === "enterTextAdvanced" && (
+              <div>
+                <label>Text:</label>
+                <input
+                  type="text"
+                  value={block.text || ""}
+                  onChange={(e) => handleInputChange(block.id, "typeName", e.target.value)}
+                />
+                <label>Window:</label>
+                <input
+                  type="number"
+                  value={block.window || ""}
+                  onChange={(e) => handleInputChange(block.id, "window", e.target.value)}
+                />
+                <label>Delay:</label>
+                <input
+                  type="number"
+                  value={block.delay || ""}
+                  onChange={(e) => handleInputChange(block.id, "delay", e.target.value)}
+                />
+              </div>
+            )}
+            
+            {block.type === "keySequence" && (
+              <div>
+                <label>Sequence:</label>
+                <input
+                  type="text"
+                  value={block.sequence || ""}
+                  onChange={(e) => handleInputChange(block.id, "sequence", e.target.value)}
+                />
+              </div>
+            )}
+
+            {block.type === "keySequenceAdvanced" && (
+              <div>
+                <label>Sqeuence:</label>
+                <input
+                  type="text"
+                  value={block.sequence || ""}
+                  onChange={(e) => handleInputChange(block.id, "sequence", e.target.value)}
+                />
+                <label>Window:</label>
+                <input
+                  type="number"
+                  value={block.window || ""}
+                  onChange={(e) => handleInputChange(block.id, "window", e.target.value)}
+                />
+                <label>delay:</label>
+                <input
+                  type="number"
+                  value={block.delay || ""}
+                  onChange={(e) => handleInputChange(block.id, "delay", e.target.value)}
+                />
+              </div>
+            )}
+
+            {block.type === "mouseClick" && (
+              <div>
+                <label>Button:</label>
+                <input
+                  type="text"
+                  value={block.button || ""}
+                  onChange={(e) => handleInputChange(block.id, "button", e.target.value)}
+                />
+              </div>
+            )}
+
+
+            {block.type === "mouseClickWindow" && (
+              <div>
+                <label>window:</label>
+                <input
+                  type="number"
+                  value={block.window || ""}
+                  onChange={(e) => handleInputChange(block.id, "window", e.target.value)}
+                />
+                <label>button:</label>
+                <input
+                  type="text"
+                  value={block.button || ""}
+                  onChange={(e) => handleInputChange(block.id, "button", e.target.value)}
+                />
+              </div>
+            )}
+
+            {block.type === "moveMouse" && (
+              <div>
+                <label>X:</label>
+                <input
+                  type="number"
+                  value={block.x || ""}
+                  onChange={(e) => handleInputChange(block.id, "x", e.target.value)}
+                />
+                <label>Y:</label>
+                <input
+                  type="number"
+                  value={block.y || ""}
+                  onChange={(e) => handleInputChange(block.id, "y", e.target.value)}
+                />
+              </div>
+            )}
+
+            {block.type === "setGlobalDelay" && (
+              <div>
+                <label>newDelay:</label>
+                <input
+                  type="number"
+                  value={block.newDelay || ""}
+                  onChange={(e) => handleInputChange(block.id, "newDelay", e.target.value)}
+                />
+              </div>
+            )}
+
+            {block.type === "runFromFile" && (
+              <div>
+                <label>Name:</label>
+                <input
+                  type="text"
+                  value={block.name || ""}
+                  onChange={(e) => handleInputChange(block.id, "name", e.target.value)}
+                />
+              </div>
+            )}
           </div>
         ))}
       </div>

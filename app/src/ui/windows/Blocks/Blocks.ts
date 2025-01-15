@@ -86,7 +86,7 @@ interface ForBlock {
     action: string;
   }
   
-  const blocks = {
+  export default   {
     // Existing for loop block
     for: function(from: number, to: number, freq: number): ForBlock {
         return {

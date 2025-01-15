@@ -212,6 +212,162 @@ const BlockRenderer: React.FC<{
           </div>
         );
 
+        case "attachController":
+        return (
+          <div className="block-content">
+            <label>luaState:</label>
+            <input
+              type="text"
+              value={block.luaState || ""}
+              onChange={(e) => onInputChange(block.id, "luaState", e.target.value)}
+            />
+          </div>
+        );
+
+        case "enterText":
+        return (
+          <div className="block-content">
+            <label>text:</label>
+            <input
+              type="text"
+              value={block.text || ""}
+              onChange={(e) => onInputChange(block.id, "text", e.target.value)}
+            />
+          </div>
+        );
+
+        case "enterTextAdvanced":
+        return (
+          <div className="block-content">
+            <label>text:</label>
+            <input
+              type="text"
+              value={block.text || ""}
+              onChange={(e) => onInputChange(block.id, "text", e.target.value)}
+            />
+            <label>window:</label>
+            <input
+              type="number"
+              value={block.window || ""}
+              onChange={(e) => onInputChange(block.id, "window", e.target.value)}
+            />
+            <label>delay:</label>
+            <input
+              type="number"
+              value={block.delay || ""}
+              onChange={(e) => onInputChange(block.id, "delay", e.target.value)}
+            />
+          </div>
+        );
+
+        case "keySequence":
+        return (
+          <div className="block-content">
+            <label>Sequence:</label>
+            <input
+              type="text"
+              value={block.sequence || ""}
+              onChange={(e) => onInputChange(block.id, "sequence", e.target.value)}
+            />
+          </div>
+        );
+
+        case "keySequenceAdvanced":
+        return (
+          <div className="block-content">
+            <label>sequence:</label>
+            <input
+              type="text"
+              value={block.sequence || ""}
+              onChange={(e) => onInputChange(block.id, "sequence", e.target.value)}
+            />
+            <label>window:</label>
+            <input
+              type="number"
+              value={block.window || ""}
+              onChange={(e) => onInputChange(block.id, "window", e.target.value)}
+            />
+            <label>delay:</label>
+            <input
+              type="number"
+              value={block.delay || ""}
+              onChange={(e) => onInputChange(block.id, "delay", e.target.value)}
+            />
+          </div>
+        );
+
+        case "mouseClick":
+        return (
+          <div className="block-content">
+            <label>button:</label>
+            <input
+              type="text"
+              value={block.button || ""}
+              onChange={(e) => onInputChange(block.id, "button", e.target.value)}
+            />
+          </div>
+        );
+
+        case "mouseClickWindow":
+        return (
+          <div className="block-content">
+            <label>window:</label>
+            <input
+              type="number"
+              value={block.window || ""}
+              onChange={(e) => onInputChange(block.id, "window", e.target.value)}
+            />
+            <label>button:</label>
+            <input
+              type="text"
+              value={block.button || ""}
+              onChange={(e) => onInputChange(block.id, "button", e.target.value)}
+            />
+          </div>
+        );
+
+        case "moveMouse":
+        return (
+          <div className="block-content">
+            <label>x:</label>
+            <input
+              type="number"
+              value={block.x || ""}
+              onChange={(e) => onInputChange(block.id, "x", e.target.value)}
+            />
+            <label>y:</label>
+            <input
+              type="number"
+              value={block.y || ""}
+              onChange={(e) => onInputChange(block.id, "y", e.target.value)}
+            />
+          </div>
+        );
+
+        case "setGlobalDelay":
+        return (
+          <div className="block-content">
+            <label>newDelay:</label>
+            <input
+              type="number"
+              value={block.newDelay || ""}
+              onChange={(e) => onInputChange(block.id, "newDelay", e.target.value)}
+            />
+          </div>
+        );
+
+        case "runFromFile":
+        return (
+          <div className="block-content">
+            <label>name:</label>
+            <input
+              type="text"
+              value={block.name || ""}
+              onChange={(e) => onInputChange(block.id, "name", e.target.value)}
+            />
+          </div>
+        );
+
       default:
         return (
           <div className="block-content">

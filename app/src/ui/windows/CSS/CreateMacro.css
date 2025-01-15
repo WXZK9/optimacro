@@ -13,7 +13,7 @@
   .block-item {
     margin-top: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
+    
     border-radius: 5px;
     
   }
@@ -55,7 +55,8 @@
   }
   
   .block-item {
-    border: 0px solid #4c00ff;
+    border-left: 1px solid #4c00ff;
+    border-top: 1px solid #4c00ff;
     margin: 10px 0;
     padding: 10px;
     border-radius: 4px;

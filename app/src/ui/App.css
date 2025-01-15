@@ -6,6 +6,28 @@ body {
 }
 
 
+.animation {
+  font-size: 50px;  
+  position: absolute;
+  bottom: 0%;     
+  animation: moveSnail 30s infinite linear; 
+}
+
+
+@keyframes moveSnail {
+  0% {
+      right: 0%;  
+  }
+  50% {
+      right: 50%;    
+      transform: translateX(50%); 
+  }
+  100% {
+      right: 100%;   
+  }
+}
+
+
 .top-menu {
   display: flex;
   justify-content: space-between; 
@@ -14,6 +36,7 @@ body {
   padding: 10px 20px; 
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000; 
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);

@@ -24,6 +24,7 @@ const App: React.FC = () => {
             <Link className='nav-button' to="/createMacros">Stworz Makra</Link>
           </div>
           <img src={snailImage} alt="Snail" className="snail-icon" />
+          
         </nav>
         {/* Page content */}
         <div className="content">
@@ -37,6 +38,9 @@ const App: React.FC = () => {
         </div>
 
       </div>
+      <div className="animation">
+                🐌
+            </div>
     </Router>
   );
 };

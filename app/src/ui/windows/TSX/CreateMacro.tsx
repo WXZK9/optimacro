@@ -4,7 +4,7 @@ import "../CSS/CreateMacro.css";
 interface BlockActions {
   for: (from: number, to: number, freq: number) => any;
   if: (condition: string, statement?: string) => any;
-  zmienna: (type: string, name: string, value: string) => any;
+  zmienna: (name: string, value: string) => any;
   attachController: (luaState: string) => any;
   enterText: (text: string) => any;
   enterTextAdvanced: (text: string, window: number, delay: number) => any;
@@ -31,8 +31,8 @@ const blockActions: BlockActions = {
   end: () => ({
     action: "end"
   }),
-  zmienna: (type, name, value) => ({
-    action: `${type} ${name} = ${value}`
+  zmienna: ( name, value) => ({
+    action: `local ${name} = ${value}`
   }),
   attachController: (luaState) => ({
     action: `attachController(${luaState})`
@@ -127,7 +127,6 @@ const CreateMacro: React.FC = () => {
 
         case "zmienna":
           const zmiennaBlock = blockActions.zmienna(
-            block.typeName || "local",
             block.name || "variable",
             block.value || '""'
           );
@@ -390,12 +389,7 @@ const BlockRenderer: React.FC<{
       case "zmienna":
         return (
           <div className="block-content">
-            <label>Type:</label>
-            <input
-              type="text"
-              value={block.typeName || ""}
-              onChange={(e) => onInputChange(block.id, "typeName", e.target.value)}
-            />
+            
             <label>Name:</label>
             <input
               type="text"

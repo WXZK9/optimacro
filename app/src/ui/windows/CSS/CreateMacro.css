@@ -39,4 +39,24 @@
   .added-blocks {
     margin-top: 30px;
   }
+  .nested-blocks {
+    margin-left: 20px;
+    padding: 10px;
+    border-left: 2px solid #31f002;
+    border-top: 2px solid rgb(111, 255, 0);
+  }
   
+  .statement-section {
+    margin-top: 10px;
+  }
+  
+  .block-content {
+    padding: 10px;
+  }
+  
+  .block-item {
+    border: 0px solid #4c00ff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+  }

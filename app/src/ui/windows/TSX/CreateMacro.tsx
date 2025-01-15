@@ -1,12 +1,85 @@
 import React, { useState } from "react";
 import "../CSS/CreateMacro.css";
 
+interface BlockActions {
+  for: (from: number, to: number, freq: number) => any;
+  if: (condition: string, statement?: string) => any;
+  zmienna: (type: string, name: string, value: string) => any;
+  attachController: (luaState: string) => any;
+  enterText: (text: string) => any;
+  enterTextAdvanced: (text: string, window: number, delay: number) => any;
+  getMouseLocation: () => any;
+  getWindowUnderMouse: () => any;
+  keySequence: (sequence: string) => any;
+  keySequenceAdvanced: (sequence: string, window: number, delay: number) => any;
+  mouseClick: (button: string) => any;
+  mouseClickWindow: (window: number, button: string) => any;
+  moveMouse: (x: number, y: number) => any;
+  setGlobalDelay: (newDelay: number) => any;
+  runFromFile: (name: string) => any;
+  end: () => any;
+}
+
+const blockActions: BlockActions = {
+  for: (from, to, freq) => ({
+    beginning: `for i = ${from}, ${to}, ${freq} do`
+  }),
+  if: (condition, statement = "then") => ({
+    beginning: `if ${condition} ${statement}`,
+    end: "end"
+  }),
+  end: () => ({
+    action: "end"
+  }),
+  zmienna: (type, name, value) => ({
+    action: `${type} ${name} = ${value}`
+  }),
+  attachController: (luaState) => ({
+    action: `attachController(${luaState})`
+  }),
+  enterText: (text) => ({
+    action: `enterText("${text}")`
+  }),
+  enterTextAdvanced: (text, window, delay) => ({
+    action: `enterTextAdvanced("${text}", ${window}, ${delay})`
+  }),
+  getMouseLocation: () => ({
+    action: "getMouseLocation()"
+  }),
+  getWindowUnderMouse: () => ({
+    action: "getWindowUnderMouse()"
+  }),
+  keySequence: (sequence) => ({
+    action: `keySequence("${sequence}")`
+  }),
+  keySequenceAdvanced: (sequence, window, delay) => ({
+    action: `keySequenceAdvanced("${sequence}", ${window}, ${delay})`
+  }),
+  mouseClick: (button) => ({
+    action: `mouseClick(${button})`
+  }),
+  mouseClickWindow: (window, button) => ({
+    action: `mouseClickWindow(${window}, ${button})`
+  }),
+  moveMouse: (x, y) => ({
+    action: `moveMouse(${x}, ${y})`
+  }),
+  setGlobalDelay: (newDelay) => ({
+    action: `setGlobalDelay(${newDelay})`
+  }),
+  runFromFile: (name) => ({
+    action: `runFromFile(${name})`
+  })
+};
+
 const CreateMacro: React.FC = () => {
   const [blocks, setBlocks] = useState<any[]>([]);
+  const [generatedCode, setGeneratedCode] = useState<string>("");
 
   const blockTypes = [
     "for",
     "if",
+    "end",
     "zmienna",
     "attachController",
     "enterText",
@@ -21,6 +94,117 @@ const CreateMacro: React.FC = () => {
     "setGlobalDelay",
     "runFromFile",
   ];
+
+  const generateCode = (blockList: any[], indentLevel: number = 0): string => {
+    const indent = "  ".repeat(indentLevel);
+    let code = "";
+
+    blockList.forEach(block => {
+      switch (block.type) {
+        case "for":
+          const forBlock = blockActions.for(
+            Number(block.from) || 0,
+            Number(block.to) || 0,
+            Number(block.freq) || 1
+          );
+          code += `${indent}${forBlock.beginning}\n`;
+          if (block.statement && block.statement.length > 0) {
+            code += generateCode(block.statement, indentLevel + 1);
+          }
+          break;
+
+        case "if":
+          const ifBlock = blockActions.if(block.condition || "true");
+          code += `${indent}${ifBlock.beginning}\n`;
+          if (block.statement && block.statement.length > 0) {
+            code += generateCode(block.statement, indentLevel + 1);
+          }
+          break;
+
+        case "end":
+          code += `${indent}${blockActions.end().action}\n`;
+          break;
+
+        case "zmienna":
+          const zmiennaBlock = blockActions.zmienna(
+            block.typeName || "local",
+            block.name || "variable",
+            block.value || '""'
+          );
+          code += `${indent}${zmiennaBlock.action}\n`;
+          break;
+
+        case "attachController":
+          code += `${indent}${blockActions.attachController("luaState").action}\n`;
+          break;
+
+        case "enterText":
+          code += `${indent}${blockActions.enterText(block.text || "").action}\n`;
+          break;
+
+        case "enterTextAdvanced":
+          code += `${indent}${blockActions.enterTextAdvanced(
+            block.text || "",
+            Number(block.window) || 0,
+            Number(block.delay) || 0
+          ).action}\n`;
+          break;
+
+        case "getMouseLocation":
+          code += `${indent}${blockActions.getMouseLocation().action}\n`;
+          break;
+
+        case "getWindowUnderMouse":
+          code += `${indent}${blockActions.getWindowUnderMouse().action}\n`;
+          break;
+
+        case "keySequence":
+          code += `${indent}${blockActions.keySequence(block.sequence || "").action}\n`;
+          break;
+
+        case "keySequenceAdvanced":
+          code += `${indent}${blockActions.keySequenceAdvanced(
+            block.sequence || "",
+            Number(block.window) || 0,
+            Number(block.delay) || 0
+          ).action}\n`;
+          break;
+
+        case "mouseClick":
+          code += `${indent}${blockActions.mouseClick(block.button || "left").action}\n`;
+          break;
+
+        case "mouseClickWindow":
+          code += `${indent}${blockActions.mouseClickWindow(
+            Number(block.window) || 0,
+            block.button || "left"
+          ).action}\n`;
+          break;
+
+        case "moveMouse":
+          code += `${indent}${blockActions.moveMouse(
+            Number(block.x) || 0,
+            Number(block.y) || 0
+          ).action}\n`;
+          break;
+
+        case "setGlobalDelay":
+          code += `${indent}${blockActions.setGlobalDelay(Number(block.delay) || 0).action}\n`;
+          break;
+
+        case "runFromFile":
+          code += `${indent}${blockActions.runFromFile(block.name || "").action}\n`;
+          break;
+      }
+    });
+
+    return code;
+  };
+
+  const handleGenerateCode = () => {
+    const code = generateCode(blocks);
+    setGeneratedCode(code);
+  };
 
   const handleBlockAdd = (selectedBlock: string) => {
     const newBlock = { type: selectedBlock, id: Date.now(), statement: [] };
@@ -105,6 +289,21 @@ const CreateMacro: React.FC = () => {
             onStatementSelection={handleStatementSelection}
           />
         ))}
+      </div>
+
+      <div className="generate-code-section">
+        <button 
+          className="generate-button"
+          onClick={handleGenerateCode}
+        >
+          Generate Lua Code
+        </button>
+        {generatedCode && (
+          <div className="generated-code">
+            <h3>Generated Lua Code:</h3>
+            <pre>{generatedCode}</pre>
+          </div>
+        )}
       </div>
     </div>
   );

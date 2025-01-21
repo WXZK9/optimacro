@@ -20,7 +20,7 @@ app.on("ready",()=>{
         try {
             const currentDate = new Date();
             const formattedDate = currentDate.toISOString().replace(/[:.-]/g, '-');  
-            const filePath = path.join('/home/bary/Desktop/Opti/optimacro/app/src/electron/MacroData', `generatedCode_${formattedDate}.lua`);
+            const filePath = path.join('/home/a/Desktop/optimacro/app/src/electron/MacroData', `generatedCode_${formattedDate}.lua`);
             fs.writeFileSync(filePath, code, 'utf-8');
             return filePath; // Return the file path to notify success
         } catch (error) {

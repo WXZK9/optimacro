@@ -1,1 +1,3 @@
 ~*.docx
+core/bin
+core/obj

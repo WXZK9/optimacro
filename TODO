@@ -1,0 +1,13 @@
+//TODO
+
+Witam w TODO tutaj inforuje o bledach rzeczach do dodania itp
+
++ Bledy (Sa tez w issue na githubie):
+1. Problem z setGlobalDelay - nie wpisuje wartosci do setGlobalDelay zawsze daje 0
+2. Zapis - Po zapisaniu do pliku gdy chce sie stworzyc nowe makro nie mozna wpisywac liczb itp
+3. GetMouseLocation **wymaga** zmiennych x i y np (jak mouseClick)
+
++ Do dodania
+1. + Dodac funkcje:
+    - sleep(1000)
+

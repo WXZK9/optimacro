@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../CSS/CreateMacro.css";
 
 // NIE DOTYKAC BEZ KONTKATU 
-// NIE USUWAC NIC PROSZE
+// NIE USUWAC NIC 
 interface BlockActions {
   for: (from: number, to: number, freq: number) => any;
   if: (condition: string, statement?: string) => any;
@@ -201,7 +201,7 @@ const CreateMacro: React.FC = () => {
           break;
 
         case "setGlobalDelay":
-          code += `${indent}${blockActions.setGlobalDelay(Number(block.delay) || 0).action}\n`;
+          code += `${indent}${blockActions.setGlobalDelay(Number(block.newDelay) || 0).action}\n`;
           break;
 
         case "runFromFile":

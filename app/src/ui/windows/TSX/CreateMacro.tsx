@@ -200,6 +200,21 @@ const CreateMacro: React.FC = () => {
     return code;
   };
 
+  const handleSaveCode = () => {
+    if (generatedCode) {
+      //@ts-ignore
+      window.electron.saveLuaCode(generatedCode)
+        .then((filePath:string) => {
+          alert(`Code saved to: ${filePath}`);
+        })
+        .catch((error:any) => {
+          console.error('Error saving code:', error);
+          alert('Failed to save code');
+        });
+    }
+  };
+
+
   const handleGenerateCode = () => {
     const code = generateCode(blocks);
     setGeneratedCode(code);
@@ -291,19 +306,19 @@ const CreateMacro: React.FC = () => {
       </div>
 
       <div className="generate-code-section">
-        <button 
-          className="generate-button"
-          onClick={handleGenerateCode}
-        >
-          Generate Lua Code
-        </button>
-        {generatedCode && (
-          <div className="generated-code">
-            <h3>Generated Lua Code:</h3>
-            <pre>{generatedCode}</pre>
-          </div>
-        )}
-      </div>
+      <button className="generate-button" onClick={handleGenerateCode}>
+        Generate Lua Code
+      </button>
+      {generatedCode && (
+        <div className="generated-code">
+          <h3>Generated Lua Code:</h3>
+          <pre>{generatedCode}</pre>
+          <button className="save-button" onClick={handleSaveCode}>
+            Save Lua Code
+          </button>
+        </div>
+      )}
+    </div>
     </div>
   );
 };

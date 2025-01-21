@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../CSS/CreateMacro.css";
 
+// NIE DOTYKAC BEZ KONTKATU 
+// NIE USUWAC NIC PROSZE
 interface BlockActions {
   for: (from: number, to: number, freq: number) => any;
   if: (condition: string, statement?: string) => any;
@@ -18,9 +20,8 @@ interface BlockActions {
   setGlobalDelay: (newDelay: number) => any;
   runFromFile: (name: string) => any;
   end: () => any;
-
-  //To ADD
-  //sleep: (number: number) => any;
+  sleep: (time: number) => any;
+  print:(text:string)=>any;
 
 }
 
@@ -48,7 +49,7 @@ const blockActions: BlockActions = {
     action: `event:enterTextAdvanced("${text}", ${window}, ${delay})`
   }),
   getMouseLocation: () => ({
-    action: "event:getMouseLocation()"
+    action: "local x,y = event:getMouseLocation()"
   }),
   getWindowUnderMouse: () => ({
     action: "event:getWindowUnderMouse()"
@@ -73,6 +74,12 @@ const blockActions: BlockActions = {
   }),
   runFromFile: (name) => ({
     action: `event:runFromFile(${name})`
+  }),
+  sleep:(time)=>({
+    action:`sleep(${time})`
+  }),
+  print:(text)=>({
+    action:`print(${text})`
   })
 };
 
@@ -97,6 +104,8 @@ const CreateMacro: React.FC = () => {
     "moveMouse",
     "setGlobalDelay",
     "runFromFile",
+    "print",
+    "sleep",
   ];
 
   const generateCode = (blockList: any[], indentLevel: number = 0): string => {
@@ -198,12 +207,17 @@ const CreateMacro: React.FC = () => {
         case "runFromFile":
           code += `${indent}${blockActions.runFromFile(block.name || "").action}\n`;
           break;
+        case "print":
+          code+=`${indent}${blockActions.print(block.text || "").action}\n`;
+          break;
+        case "sleep":
+          code+=`${indent}${blockActions.sleep(Number(block.time) || 0).action}\n`
       }
     });
 
     return code;
   };
-
+ // NIE USUWAC TS IGNORE
   const handleSaveCode = () => {
     if (generatedCode) {
       //@ts-ignore
@@ -229,7 +243,7 @@ const CreateMacro: React.FC = () => {
     setBlocks([...blocks, newBlock]);
   };
 
-  // Updated to handle nested blocks recursively
+ 
   const updateNestedBlock = (blockId: number, updateFn: (block: any) => any, parentBlocks: any[] = blocks): any[] => {
     return parentBlocks.map(block => {
       if (block.id === blockId) {
@@ -265,7 +279,7 @@ const CreateMacro: React.FC = () => {
     }
   };
 
-  // Updated to handle nested block removal
+
   const handleBlockRemove = (blockId: number) => {
     const removeNestedBlock = (blocks: any[]): any[] => {
       return blocks.filter(block => block.id !== blockId).map(block => {
@@ -579,6 +593,30 @@ const BlockRenderer: React.FC<{
             />
           </div>
         );
+
+        case "sleep":
+          return (
+            <div className="block-content">
+              <label>time:</label>
+              <input
+                type="number"
+                value={block.time || ""}
+                onChange={(e) => onInputChange(block.id, "time", e.target.value)}
+              />
+            </div>
+          );
+
+          case "print":
+          return (
+            <div className="block-content">
+              <label>text to print:</label>
+              <input
+                type="text"
+                value={block.text || ""}
+                onChange={(e) => onInputChange(block.id, "text", e.target.value)}
+              />
+            </div>
+          );
 
       default:
         return (

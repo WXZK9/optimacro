@@ -4,6 +4,13 @@ import fs from 'fs';
 import { isDev } from "./util.js";
 import { getPreloadPath } from "./pathResolver.js";
 //type test = string;
+
+interface SavedCodeInfo {
+    name: string;
+    shortcut: string;
+    filePath: string;
+  }
+  
 app.on("ready",()=>{
     const mainWindow = new BrowserWindow({
         webPreferences:{
@@ -16,18 +23,35 @@ app.on("ready",()=>{
         mainWindow.loadFile(path.join(app.getAppPath()+"/dist-react/index.html"));
     }
     
-    ipcMain.handle('save-lua-code', async (event,code: string) => {
+    ipcMain.handle('save-lua-code', async (event, code: string, name: string, shortcut: string) => {
         try {
-            const currentDate = new Date();
-            const formattedDate = currentDate.toISOString().replace(/[:.-]/g, '-');  
-            const filePath = path.join('./src/electron/MacroData', `generatedCode_${formattedDate}.lua`);
-            fs.writeFileSync(filePath, code, 'utf-8');
-            return filePath; // Return the file path to notify success
+          // Save the Lua code to a file
+          const currentDate = new Date();
+          const formattedDate = currentDate.toISOString().replace(/[:.-]/g, '-');
+          const filePath = path.join('./src/electron/MacroData', `generatedCode_${formattedDate}.lua`);
+          fs.writeFileSync(filePath, code, 'utf-8');
+      
+          // Save the name, shortcut, and filePath to a JSON file
+          const jsonFilePath = path.join('./src/electron/MacroData', 'savedCodes.json');
+          let savedCodes: SavedCodeInfo[] = [];
+          
+          // Read the existing JSON file if it exists
+          if (fs.existsSync(jsonFilePath)) {
+            const fileData = fs.readFileSync(jsonFilePath, 'utf-8');
+            savedCodes = JSON.parse(fileData);
+          }
+      
+          // Add the new code info to the list
+          savedCodes.push({ name, shortcut, filePath });
+      
+          // Write the updated list to the JSON file
+          fs.writeFileSync(jsonFilePath, JSON.stringify(savedCodes, null, 2), 'utf-8');
+      
+          return filePath; 
         } catch (error) {
-            console.error('Error saving file:', error);
-            throw error;
+          console.error('Error saving file:', error);
+          throw error;
         }
       });
-      
     
 })

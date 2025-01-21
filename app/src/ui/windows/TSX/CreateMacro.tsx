@@ -86,7 +86,7 @@ const blockActions: BlockActions = {
 const CreateMacro: React.FC = () => {
   const [blocks, setBlocks] = useState<any[]>([]);
   const [generatedCode, setGeneratedCode] = useState<string>("");
-
+  
   const blockTypes = [
     "for",
     "if",
@@ -218,19 +218,24 @@ const CreateMacro: React.FC = () => {
     return code;
   };
  // NIE USUWAC TS IGNORE
-  const handleSaveCode = () => {
-    if (generatedCode) {
-      //@ts-ignore
-      window.electron.saveLuaCode(generatedCode)
-        .then((filePath:string) => {
-          alert(`Code saved to: ${filePath}`);
-        })
-        .catch((error:any) => {
-          console.error('Error saving code:', error);
-          alert('Failed to save code');
-        });
-    }
-  };
+ const [name, setName] = useState('');
+ const [shortcut, setShortcut] = useState('');
+ 
+ const handleSaveCode = () => {
+  if (generatedCode && name && shortcut) {
+    //@ts-ignore
+    window.electron.saveLuaCode(generatedCode, name, shortcut)
+      .then((filePath: string) => {
+        alert(`Code saved to: ${filePath}`);
+      })
+      .catch((error: any) => {
+        console.error('Error saving code:', error);
+        alert('Failed to save code');
+      });
+  } else {
+    alert('Please fill in all fields');
+  }
+};
 
 
   const handleGenerateCode = () => {
@@ -295,10 +300,11 @@ const CreateMacro: React.FC = () => {
 
     setBlocks(removeNestedBlock(blocks));
   };
-
+  
   return (
     <div className="create-macro-container">
       <h2>Create Lua Macro</h2>
+
 
       <label htmlFor="block-select">Select Block Type:</label>
       <select id="block-select" onChange={(e) => handleBlockAdd(e.target.value)}>
@@ -327,16 +333,28 @@ const CreateMacro: React.FC = () => {
       <button className="generate-button" onClick={handleGenerateCode}>
         Generate Lua Code
       </button>
-      {generatedCode && (
-        <div className="generated-code">
-          <h3>Generated Lua Code:</h3>
-          <pre>{generatedCode}</pre>
-          <button className="save-button" onClick={handleSaveCode}>
-            Save Lua Code
-          </button>
+        {generatedCode && (
+          <div className="generated-code">
+            <pre>{generatedCode}</pre>
+        <input 
+          type="text" 
+          placeholder="Enter name" 
+          value={name} 
+          onChange={(e) => setName(e.target.value)} 
+        />
+        <input 
+          type="text" 
+          placeholder="Enter shortcut" 
+          value={shortcut} 
+          onChange={(e) => setShortcut(e.target.value)} 
+        />
+        <button className="save-button" onClick={handleSaveCode}>
+          Save Lua Code
+        </button>
         </div>
       )}
     </div>
+    
     </div>
   );
 };

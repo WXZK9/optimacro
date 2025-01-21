@@ -3,6 +3,8 @@ const {ipcRenderer} = require('electron/renderer')
 const electron = require('electron');
 
 electron.contextBridge.exposeInMainWorld("electron",{
-    saveLuaCode: (code: string): Promise<string> => ipcRenderer.invoke('save-lua-code', code),
-    reloadApp: () => ipcRenderer.invoke('reloadApp')
+    saveLuaCode: (code: string, name: string, shortcut: string): Promise<string> => {
+        return ipcRenderer.invoke('save-lua-code', code, name, shortcut);
+      }
+    
 })

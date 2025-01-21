@@ -1,6 +1,7 @@
 {
     "appId":"com.optiMacro.OptiMacro",
     "files":["dist-electron","dist-react"],
+    "extraResources":["dist-electron/preload.csj"],
     "icon":"./desktopIcon.png",
     "mac":{
         "target":"dmg"

@@ -18,6 +18,10 @@ interface BlockActions {
   setGlobalDelay: (newDelay: number) => any;
   runFromFile: (name: string) => any;
   end: () => any;
+
+  //To ADD
+  //sleep: (number: number) => any;
+
 }
 
 const blockActions: BlockActions = {
@@ -35,40 +39,40 @@ const blockActions: BlockActions = {
     action: `local ${name} = ${value}`
   }),
   attachController: (luaState) => ({
-    action: `attachController(${luaState})`
+    action: `event:attachController(${luaState})`
   }),
   enterText: (text) => ({
-    action: `enterText("${text}")`
+    action: `event:enterText("${text}")`
   }),
   enterTextAdvanced: (text, window, delay) => ({
-    action: `enterTextAdvanced("${text}", ${window}, ${delay})`
+    action: `event:enterTextAdvanced("${text}", ${window}, ${delay})`
   }),
   getMouseLocation: () => ({
-    action: "getMouseLocation()"
+    action: "event:getMouseLocation()"
   }),
   getWindowUnderMouse: () => ({
-    action: "getWindowUnderMouse()"
+    action: "event:getWindowUnderMouse()"
   }),
   keySequence: (sequence) => ({
-    action: `keySequence("${sequence}")`
+    action: `event:keySequence("${sequence}")`
   }),
   keySequenceAdvanced: (sequence, window, delay) => ({
-    action: `keySequenceAdvanced("${sequence}", ${window}, ${delay})`
+    action: `event:keySequenceAdvanced("${sequence}", ${window}, ${delay})`
   }),
   mouseClick: (button) => ({
-    action: `mouseClick(${button})`
+    action: `event:mouseClick(${button})`
   }),
   mouseClickWindow: (window, button) => ({
-    action: `mouseClickWindow(${window}, ${button})`
+    action: `event:mouseClickWindow(${window}, ${button})`
   }),
   moveMouse: (x, y) => ({
-    action: `moveMouse(${x}, ${y})`
+    action: `event:moveMouse(${x}, ${y})`
   }),
   setGlobalDelay: (newDelay) => ({
-    action: `setGlobalDelay(${newDelay})`
+    action: `event:setGlobalDelay(${newDelay})`
   }),
   runFromFile: (name) => ({
-    action: `runFromFile(${name})`
+    action: `event:runFromFile(${name})`
   })
 };
 

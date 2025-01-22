@@ -1,0 +1,22 @@
+[
+  {
+    "name": "as",
+    "shortcut": "ctrl+a",
+    "filePath": "/home/a/Desktop/optimacro/core/mouse_test.lua"
+  },
+  {
+    "name": "aass",
+    "shortcut": "shift+p",
+    "filePath": "/home/a/Desktop/optimacro/core/mouse_test.lua"
+  },
+  {
+    "name": "aaasss",
+    "shortcut": "ctrl+shift+f",
+    "filePath": "/home/a/Desktop/optimacro/core/mouse_test.lua"
+  },
+  {
+    "name": "aaaassss",
+    "shortcut": "ctrl+shift+alt+f",
+    "filePath": "/home/a/Desktop/optimacro/core/mouse_test.lua"
+  }
+]

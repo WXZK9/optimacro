@@ -1,0 +1,8 @@
+Shortcut pressed: ctrl+a
+Shortcut pressed: ctrl+p+c
+Shortcut pressed: ctrl+a
+Shortcut pressed: ctrl+a
+Shortcut pressed: shift+p
+Shortcut pressed: ctrl+shift+f
+Shortcut pressed: ctrl+shift+f
+Shortcut pressed: ctrl+shift+alt+f

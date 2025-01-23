@@ -1,1 +1,0 @@
-event:attachController(luaState)

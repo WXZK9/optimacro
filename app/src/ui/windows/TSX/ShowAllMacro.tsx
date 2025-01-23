@@ -36,15 +36,15 @@ const Macros: React.FC = () => {
     setFilteredMacros(filtered);
   };
 
-  const deleteMacro = async (index: number) => {
+  const deleteMacro = async (index: number,LuaPath:string) => {
     const updatedMacros = [...macros];
     updatedMacros.splice(index, 1);
 
-  
+    
     //@ts-ignore
     const result = await  window.electron.deleteMacro(
-        "/home/bary/Desktop/Opti/optimacro/app/src/electron/MacroData/savedCodes.json",
-        JSON.stringify(updatedMacros, null, 2) 
+        "./src/electron/MacroData/savedCodes.json",
+        JSON.stringify(updatedMacros, null, 2),LuaPath
       );
     if (result.success) {
       setMacros(updatedMacros);
@@ -71,7 +71,7 @@ const Macros: React.FC = () => {
           <div key={index} className={styles.macro}>
             <div className={styles.name}>{macro.name}</div>
             <div className={styles.shortcut}>{macro.shortcut}</div>
-            <button className={styles.deleteButton} onClick={() => deleteMacro(index)}>
+            <button className={styles.deleteButton} onClick={() => deleteMacro(index,macro.filePath)}>
               Delete
             </button>
           </div>

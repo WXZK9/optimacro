@@ -54,9 +54,11 @@ app.on("ready",()=>{
         }
       });
       //Delete Macro
-      ipcMain.handle("delete-macro", async (event, filePath, updatedMacros) => {
+      ipcMain.handle("delete-macro", async (event, filePath, updatedMacros,LuaPath) => {
         try {
+          
           fs.writeFileSync(filePath,updatedMacros);
+          fs.rmSync("./"+LuaPath);
           return { success: true };
         } catch (error) {
           console.error("Error writing to savedCodes.json:", error);
@@ -65,7 +67,7 @@ app.on("ready",()=>{
       });
       //Fetch all macro data
       ipcMain.handle("fetch-macros", async () => {
-        const filePath = "/home/bary/Desktop/Opti/optimacro/app/src/electron/MacroData/savedCodes.json";
+        const filePath = "./src/electron/MacroData/savedCodes.json";
         try {
           const data = fs.readFileSync(filePath, "utf-8");
           return JSON.parse(data);

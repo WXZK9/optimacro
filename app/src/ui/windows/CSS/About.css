@@ -11,7 +11,9 @@ body {
     text-align: center;
 }
 
-
+h2{
+    font-size: 5rem;
+}
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

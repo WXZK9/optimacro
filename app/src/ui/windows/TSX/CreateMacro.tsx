@@ -338,7 +338,7 @@ const CreateMacro: React.FC = () => {
             <pre>{generatedCode}</pre>
         <input 
           type="text" 
-          placeholder="Enter name" 
+          placeholder="Enter Description" 
           value={name} 
           onChange={(e) => setName(e.target.value)} 
         />

@@ -1,9 +1,13 @@
 .create-macro-container {
     padding: 20px;
+   
   }
-  
+ h2 {
+   font-size: 5rem;
+ } 
   label {
     margin-right: 10px;
+    
   }
   
   input, select {

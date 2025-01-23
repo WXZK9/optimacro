@@ -56,7 +56,7 @@ const Macros: React.FC = () => {
 
   return (
     <div>
-      <h1>Macros</h1>
+      <h2>Your Macros</h2>
 
       <input
         type="text"

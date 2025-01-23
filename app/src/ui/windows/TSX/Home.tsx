@@ -7,7 +7,18 @@ const Home: React.FC = () => {
 
     return (
         <div className="home-container">
-            <h1>Home screen</h1>
+            <div className="sentence top">
+                <h2>OPTIMACRO</h2>
+            </div>
+            <div className="sentence middle">
+                <p>Program do low codowego tworzenia makr używając skryptów lua.</p>
+            </div>
+            <div className="sentence middle">
+                <p>Dodawaj tylko bloczki, a kod zostanie dla Ciebie automatycznie wygenerowany i gotowy do działania.</p>
+            </div>
+            <div className="sentence bottom">
+                <p>Nie bądź jak ślimak i przyśpiesz sobie robotę....</p>
+            </div>
             <button onClick={() => navigate("/About")}>About</button>
         </div>
     );

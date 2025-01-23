@@ -8,22 +8,22 @@ body {
 
 .animation {
   font-size: 50px;  
-  position: absolute;
-  bottom: 0%;     
+  position: fixed;
+  right: 0%;     
   animation: moveSnail 30s infinite linear; 
 }
 
 
 @keyframes moveSnail {
   0% {
-      right: 0%;  
+      top: 0vh;  
   }
   50% {
-      right: 50%;    
-      transform: translateX(50%); 
+      top: 50vh;    
+      transform: translateY(40%); 
   }
   100% {
-      right: 100%;   
+      top: 100vw;   
   }
 }
 

@@ -5,12 +5,12 @@
     "filePath": "/home/a/Desktop/optimacro/core/mouse_test.lua"
   },
   {
-    "name": "aass",
+    "name": "asdasdas das dasd ad asd asdasd ad asd sadas",
     "shortcut": "shift+p",
     "filePath": "/home/a/Desktop/optimacro/core/mouse_test.lua"
   },
   {
-    "name": "aaasss",
+    "name": "Bierze starego na plecy i ugniata ziemniaki",
     "shortcut": "ctrl+shift+f",
     "filePath": "/home/a/Desktop/optimacro/core/mouse_test.lua"
   },
@@ -18,5 +18,10 @@
     "name": "aaaassss",
     "shortcut": "ctrl+shift+alt+f",
     "filePath": "/home/a/Desktop/optimacro/core/mouse_test.lua"
+  },
+  {
+    "name": "printstat",
+    "shortcut": "ctr + a",
+    "filePath": "src/electron/MacroData/generatedCode_2025-01-23T15-34-07-073Z.lua"
   }
 ]

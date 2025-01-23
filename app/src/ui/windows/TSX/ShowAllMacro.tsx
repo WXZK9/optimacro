@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "../CSS/AllMacro.module.css";
 
 interface Macro {
@@ -11,51 +11,73 @@ interface Macro {
 const Macros: React.FC = () => {
   const navigate = useNavigate();
   const [macros, setMacros] = useState<Macro[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>(""); 
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [filteredMacros, setFilteredMacros] = useState<Macro[]>([]);
 
   useEffect(() => {
-    import("/home/bary/Desktop/Opti/optimacro/app/src/electron/MacroData/savedCodes.json")
-      .then((data) => {
-        setMacros(data.default);
-        setFilteredMacros(data.default); 
+
+    //@ts-ignore
+    window.electron.fetchMacros()
+      .then((data: Macro[]) => {
+        setMacros(data);
+        setFilteredMacros(data);
       })
-      .catch((error) => {
-        console.error("Error loading savedCodes.json", error);
+      .catch((error: Error) => {
+        console.error("Error loading macros:", error);
       });
   }, []);
 
-  
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const term = event.target.value.toLowerCase(); 
+    const term = event.target.value.toLowerCase();
     setSearchTerm(term);
     const filtered = macros.filter((macro) =>
-      macro.name.toLowerCase().includes(term) 
+      macro.name.toLowerCase().includes(term)
     );
     setFilteredMacros(filtered);
   };
 
+  const deleteMacro = async (index: number) => {
+    const updatedMacros = [...macros];
+    updatedMacros.splice(index, 1);
+
+  
+    //@ts-ignore
+    const result = await  window.electron.deleteMacro(
+        "/home/bary/Desktop/Opti/optimacro/app/src/electron/MacroData/savedCodes.json",
+        JSON.stringify(updatedMacros, null, 2) 
+      );
+    if (result.success) {
+      setMacros(updatedMacros);
+      setFilteredMacros(updatedMacros);
+    } else {
+      console.error("Failed to delete macro:", result.error);
+    }
+  };
+
   return (
     <div>
-      <h1>TWOJE MAKRA</h1>
-      
+      <h1>Macros</h1>
+
       <input
         type="text"
         placeholder="Search macros..."
         value={searchTerm}
         onChange={handleSearch}
-        className={styles.searchBox} 
+        className={styles.searchBox}
       />
-      
+
       <div className={styles.container}>
         {filteredMacros.map((macro, index) => (
           <div key={index} className={styles.macro}>
             <div className={styles.name}>{macro.name}</div>
             <div className={styles.shortcut}>{macro.shortcut}</div>
+            <button className={styles.deleteButton} onClick={() => deleteMacro(index)}>
+              Delete
+            </button>
           </div>
         ))}
       </div>
-      
+
       <button onClick={() => navigate("/")}>Go Back</button>
     </div>
   );

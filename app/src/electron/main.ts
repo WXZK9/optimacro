@@ -53,5 +53,26 @@ app.on("ready",()=>{
           throw error;
         }
       });
+
+      ipcMain.handle("delete-macro", async (event, filePath, updatedMacros) => {
+        try {
+          console.log(filePath)
+          fs.writeFileSync(filePath,updatedMacros);
+          return { success: true };
+        } catch (error) {
+          console.error("Error writing to savedCodes.json:", error);
+          return { success: false, error };
+        }
+      });
+      ipcMain.handle("fetch-macros", async () => {
+        const filePath = "/home/bary/Desktop/Opti/optimacro/app/src/electron/MacroData/savedCodes.json";
+        try {
+          const data = fs.readFileSync(filePath, "utf-8");
+          return JSON.parse(data);
+        } catch (error) {
+          console.error("Error reading savedCodes.json:", error);
+          return [];
+        }
+      });
     
 })

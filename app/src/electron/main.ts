@@ -22,7 +22,7 @@ app.on("ready",()=>{
     }else{
         mainWindow.loadFile(path.join(app.getAppPath()+"/dist-react/index.html"));
     }
-    
+    //Saving lua code
     ipcMain.handle('save-lua-code', async (event, code: string, name: string, shortcut: string) => {
         try {
           // Save the Lua code to a file
@@ -53,10 +53,9 @@ app.on("ready",()=>{
           throw error;
         }
       });
-
+      //Delete Macro
       ipcMain.handle("delete-macro", async (event, filePath, updatedMacros) => {
         try {
-          console.log(filePath)
           fs.writeFileSync(filePath,updatedMacros);
           return { success: true };
         } catch (error) {
@@ -64,6 +63,7 @@ app.on("ready",()=>{
           return { success: false, error };
         }
       });
+      //Fetch all macro data
       ipcMain.handle("fetch-macros", async () => {
         const filePath = "/home/bary/Desktop/Opti/optimacro/app/src/electron/MacroData/savedCodes.json";
         try {

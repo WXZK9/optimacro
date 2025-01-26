@@ -1,4 +1,5 @@
 #include "LuaMacroHandler.hpp"
+#include "OptimacroDaemon.hpp"
 #include <sol/sol.hpp>
 #include <string>
 #include <xdo.h>
@@ -8,6 +9,11 @@ int main(int argc, char **argv) {
   LuaMacroHandler macro;
   if (argc != 2) {
     std::cout << "usage: ./optimacro [script_file]\n";
-  } else
-    macro.runFromFile(argv[1]);
+  } else {
+    string arg = argv[1];
+    if (arg == "--daemon") {
+      runDaemon();
+    } else
+      macro.runFromFile(argv[1]);
+  }
 }

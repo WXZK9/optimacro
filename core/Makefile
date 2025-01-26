@@ -1,8 +1,8 @@
-CPPFLAGS=-std=c++20 -Og -g -llua -lxdo
+CPPFLAGS=-std=c++20 -Og -g -llua -lxdo -lX11
 CC=g++
 
 EXECUTABLE_NAME=optimacro
-SOURCE_FILES= main.cpp EventController.cpp LuaMacroHandler.cpp
+SOURCE_FILES= main.cpp EventController.cpp LuaMacroHandler.cpp OptimacroDaemon.cpp
 
 SRC=src
 BIN=bin
@@ -22,7 +22,7 @@ clean:
 .PHONY: build clean
 
 $(EXECUTABLE_FILES): $(OBJECT_FILES)
-	@$(CC) -g -llua -lxdo -o $@ $^
+	@$(CC) -g -llua -lxdo -lX11 -o $@ $^
 	@echo "Build successful!"
 $(OBJECT_FILES): $(OBJ)/%.o: $(SRC)/%.cpp
 	@mkdir -p $(@D)

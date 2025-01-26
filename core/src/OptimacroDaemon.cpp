@@ -201,7 +201,7 @@ void listenForKeyAndRunMacros(vector<Macro> &macros, Display *display) {
           if (matchFound) {
             cout << "Executing script for shortcut " << macro.shortcut << ": "
                  << macro.filePath << endl;
-            string execCommand = "../bin/optimacro " + macro.filePath;
+            string execCommand = "./optimacro " + macro.filePath;
             system(execCommand.c_str());
           }
         }

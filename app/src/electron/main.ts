@@ -28,7 +28,7 @@ app.on("ready",()=>{
           // Save the Lua code to a file
           const currentDate = new Date();
           const formattedDate = currentDate.toISOString().replace(/[:.-]/g, '-');
-          const filePath = path.join('./src/electron/MacroData', `generatedCode_${formattedDate}.lua`);
+          let filePath = path.join('./src/electron/MacroData', `generatedCode_${formattedDate}.lua`);
           fs.writeFileSync(filePath, code, 'utf-8');
       
           // Save the name, shortcut, and filePath to a JSON file
@@ -40,7 +40,7 @@ app.on("ready",()=>{
             const fileData = fs.readFileSync(jsonFilePath, 'utf-8');
             savedCodes = JSON.parse(fileData);
           }
-      
+          filePath = "../../app/"+filePath;
           // Add the new code info to the list
           savedCodes.push({ name, shortcut, filePath });
       
@@ -56,9 +56,9 @@ app.on("ready",()=>{
       //Delete Macro
       ipcMain.handle("delete-macro", async (event, filePath, updatedMacros,LuaPath) => {
         try {
-          
+          let filePathFinal = LuaPath.replace(/^\.{2}\/\.{2}\/app\//, '');
           fs.writeFileSync(filePath,updatedMacros);
-          fs.rmSync("./"+LuaPath);
+          fs.rmSync("./"+filePathFinal);
           return { success: true };
         } catch (error) {
           console.error("Error writing to savedCodes.json:", error);

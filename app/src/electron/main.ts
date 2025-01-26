@@ -23,6 +23,7 @@ app.on("ready",()=>{
         mainWindow.loadFile(path.join(app.getAppPath()+"/dist-react/index.html"));
     }
     //Saving lua code
+    //@ts-ignore
     ipcMain.handle('save-lua-code', async (event, code: string, name: string, shortcut: string) => {
         try {
           // Save the Lua code to a file
@@ -54,6 +55,7 @@ app.on("ready",()=>{
         }
       });
       //Delete Macro
+      //@ts-ignore
       ipcMain.handle("delete-macro", async (event, filePath, updatedMacros,LuaPath) => {
         try {
           let filePathFinal = LuaPath.replace(/^\.{2}\/\.{2}\/app\//, '');

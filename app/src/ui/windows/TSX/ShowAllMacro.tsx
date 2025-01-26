@@ -43,7 +43,7 @@ const Macros: React.FC = () => {
     
     //@ts-ignore
     const result = await  window.electron.deleteMacro(
-        "./src/electron/MacroData/savedCodes.json",
+        "./savedCodes.json",
         JSON.stringify(updatedMacros, null, 2),LuaPath
       );
     if (result.success) {

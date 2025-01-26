@@ -22,18 +22,17 @@ app.on("ready",()=>{
     }else{
         mainWindow.loadFile(path.join(app.getAppPath()+"/dist-react/index.html"));
     }
-    //Saving lua code
-    //@ts-ignore
-    ipcMain.handle('save-lua-code', async (event, code: string, name: string, shortcut: string) => {
+    //Saving lua code 
+    ipcMain.handle('save-lua-code', async (_event, code: string, name: string, shortcut: string) => {
         try {
           // Save the Lua code to a file
           const currentDate = new Date();
           const formattedDate = currentDate.toISOString().replace(/[:.-]/g, '-');
-          let filePath = path.join('./src/electron/MacroData', `generatedCode_${formattedDate}.lua`);
+          let filePath = path.join('./', `generatedCode_${formattedDate}.lua`);
           fs.writeFileSync(filePath, code, 'utf-8');
       
           // Save the name, shortcut, and filePath to a JSON file
-          const jsonFilePath = path.join('./src/electron/MacroData', 'savedCodes.json');
+          const jsonFilePath = path.join('./', 'savedCodes.json');
           let savedCodes: SavedCodeInfo[] = [];
           
           // Read the existing JSON file if it exists
@@ -41,7 +40,7 @@ app.on("ready",()=>{
             const fileData = fs.readFileSync(jsonFilePath, 'utf-8');
             savedCodes = JSON.parse(fileData);
           }
-          filePath = "../../app/"+filePath;
+          filePath = filePath;
           // Add the new code info to the list
           savedCodes.push({ name, shortcut, filePath });
       
@@ -55,12 +54,10 @@ app.on("ready",()=>{
         }
       });
       //Delete Macro
-      //@ts-ignore
-      ipcMain.handle("delete-macro", async (event, filePath, updatedMacros,LuaPath) => {
+      ipcMain.handle("delete-macro", async (_event, filePath, updatedMacros,LuaPath) => {
         try {
-          let filePathFinal = LuaPath.replace(/^\.{2}\/\.{2}\/app\//, '');
           fs.writeFileSync(filePath,updatedMacros);
-          fs.rmSync("./"+filePathFinal);
+          fs.rmSync("./"+LuaPath);    //MOZE POWODOWAC PROBLEMY
           return { success: true };
         } catch (error) {
           console.error("Error writing to savedCodes.json:", error);
@@ -69,7 +66,7 @@ app.on("ready",()=>{
       });
       //Fetch all macro data
       ipcMain.handle("fetch-macros", async () => {
-        const filePath = "./src/electron/MacroData/savedCodes.json";
+        const filePath = "./savedCodes.json";
         try {
           const data = fs.readFileSync(filePath, "utf-8");
           return JSON.parse(data);

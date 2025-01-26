@@ -6,14 +6,16 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
-#include <sys/stat.h> // Do sprawdzania czasu modyfikacji pliku
+#include <sys/stat.h>
 #include <thread>
 #include <mutex>
 #include <set>
 
 using namespace std;
 
-const string pathToFile = "../../app/src/electron/MacroData/savedCodes.json";
+//g++ OptimacroDaemon.cpp  -lX11 -lXts
+
+const string pathToFile = "/home/a/Desktop/gr/optimacro/app/dist/savedCodes.json";
 
 struct Macro {
     string name;

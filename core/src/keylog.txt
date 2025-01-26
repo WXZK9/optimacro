@@ -101,3 +101,4 @@ Shortcut pressed: alt+f
 Shortcut pressed: alt+f
 Shortcut pressed: alt+f
 Shortcut pressed: ctrl+k
+Shortcut pressed: ctrl+a

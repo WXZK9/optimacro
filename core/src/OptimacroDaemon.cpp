@@ -9,13 +9,9 @@
 #include <sys/stat.h> // Do sprawdzania czasu modyfikacji pliku
 #include <thread>
 #include <mutex>
+#include <set>
 
 using namespace std;
-
-// WYMAGANE
-// sudo pacman -S libx11 libxtst
-// g++ OptimacroDaemon.cpp -lx11 -lxtst
-// g++ OptimacroDaemon.cpp -L/usr/lib -lX11 -lXtst
 
 const string pathToFile = "../../app/src/electron/MacroData/savedCodes.json";
 
@@ -26,6 +22,7 @@ struct Macro {
 };
 
 mutex macrosMutex; 
+set<string> registeredShortcuts;
 
 time_t getFileModificationTime(const string& filePath) {
     struct stat fileStat;
@@ -77,29 +74,39 @@ void registerKeys(Display* display, const vector<Macro>& macros) {
         bool ctrlRequired = macroShortcut.find("ctrl") != string::npos;
         bool altRequired = macroShortcut.find("alt") != string::npos;
         bool shiftRequired = macroShortcut.find("shift") != string::npos;
+        string key = macroShortcut.substr(macroShortcut.find_last_of("+") + 1);
+        
+        unsigned int modifiers = 0;
+        if (ctrlRequired) modifiers |= ControlMask;
+        if (altRequired) modifiers |= Mod1Mask;
+        if (shiftRequired) modifiers |= ShiftMask;
 
-        // Rejestrujemy odpowiednie kombinacje modyfikatorów
-        if (ctrlRequired && altRequired && shiftRequired) {
-            XGrabKey(display, XKeysymToKeycode(display, XStringToKeysym(macroShortcut.substr(macroShortcut.find_last_of("+") + 1).c_str())),
-                     ControlMask | Mod1Mask | ShiftMask, DefaultRootWindow(display), True, GrabModeAsync, GrabModeAsync);
-        } else if (ctrlRequired && altRequired) {
-            XGrabKey(display, XKeysymToKeycode(display, XStringToKeysym(macroShortcut.substr(macroShortcut.find_last_of("+") + 1).c_str())),
-                     ControlMask | Mod1Mask, DefaultRootWindow(display), True, GrabModeAsync, GrabModeAsync);
-        } else if (ctrlRequired && shiftRequired) {
-            XGrabKey(display, XKeysymToKeycode(display, XStringToKeysym(macroShortcut.substr(macroShortcut.find_last_of("+") + 1).c_str())),
-                     ControlMask | ShiftMask, DefaultRootWindow(display), True, GrabModeAsync, GrabModeAsync);
-        } else if (altRequired && shiftRequired) {
-            XGrabKey(display, XKeysymToKeycode(display, XStringToKeysym(macroShortcut.substr(macroShortcut.find_last_of("+") + 1).c_str())),
-                     Mod1Mask | ShiftMask, DefaultRootWindow(display), True, GrabModeAsync, GrabModeAsync);
-        } else if (ctrlRequired) {
-            XGrabKey(display, XKeysymToKeycode(display, XStringToKeysym(macroShortcut.substr(macroShortcut.find_last_of("+") + 1).c_str())),
-                     ControlMask, DefaultRootWindow(display), True, GrabModeAsync, GrabModeAsync);
-        } else if (altRequired) {
-            XGrabKey(display, XKeysymToKeycode(display, XStringToKeysym(macroShortcut.substr(macroShortcut.find_last_of("+") + 1).c_str())),
-                     Mod1Mask, DefaultRootWindow(display), True, GrabModeAsync, GrabModeAsync);
-        } else if (shiftRequired) {
-            XGrabKey(display, XKeysymToKeycode(display, XStringToKeysym(macroShortcut.substr(macroShortcut.find_last_of("+") + 1).c_str())),
-                     ShiftMask, DefaultRootWindow(display), True, GrabModeAsync, GrabModeAsync);
+        KeyCode keyCode = XKeysymToKeycode(display, XStringToKeysym(key.c_str()));
+        if (keyCode != 0) {
+            XGrabKey(display, keyCode, modifiers, DefaultRootWindow(display), True, GrabModeAsync, GrabModeAsync);
+            registeredShortcuts.insert(macro.shortcut); // Dodajemy do zarejestrowanych skrótów
+        }
+    }
+}
+
+void unregisterKeys(Display* display, const vector<Macro>& previousMacros) {
+    for (const auto& macro : previousMacros) {
+        string macroShortcut = macro.shortcut;
+
+        bool ctrlRequired = macroShortcut.find("ctrl") != string::npos;
+        bool altRequired = macroShortcut.find("alt") != string::npos;
+        bool shiftRequired = macroShortcut.find("shift") != string::npos;
+        string key = macroShortcut.substr(macroShortcut.find_last_of("+") + 1);
+
+        unsigned int modifiers = 0;
+        if (ctrlRequired) modifiers |= ControlMask;
+        if (altRequired) modifiers |= Mod1Mask;
+        if (shiftRequired) modifiers |= ShiftMask;
+
+        KeyCode keyCode = XKeysymToKeycode(display, XStringToKeysym(key.c_str()));
+        if (keyCode != 0 && registeredShortcuts.find(macro.shortcut) != registeredShortcuts.end()) {
+            XUngrabKey(display, keyCode, modifiers, DefaultRootWindow(display)); // Odrejestrowujemy skrót
+            registeredShortcuts.erase(macro.shortcut);
         }
     }
 }
@@ -111,16 +118,17 @@ void monitorFileChanges(vector<Macro> &macros, const string &pathToFile, Display
         time_t currentModificationTime = getFileModificationTime(pathToFile);
         if (currentModificationTime != lastModificationTime) {
             cout << "File modified, reloading macros..." << endl;
-            vector<Macro> newMacros = loadMacros(pathToFile);  // Ładowanie nowych makr
+            vector<Macro> newMacros = loadMacros(pathToFile);
 
-            // Aktualizacja makr w bezpieczny sposób z użyciem mutexa
+            // Znajdź stare makra, które należy odrejestrować
             {
                 lock_guard<mutex> guard(macrosMutex);
+                unregisterKeys(display, macros);  // Odrejestruj stare makra
                 macros = newMacros;
             }
-            lastModificationTime = currentModificationTime;
 
-            registerKeys(display, macros);
+            registerKeys(display, macros);  // Zarejestruj nowe makra
+            lastModificationTime = currentModificationTime;
 
             for (const auto& macro : macros) {
                 cout << "Loaded macro: " << macro.shortcut << " (" << macro.filePath << ")" << endl;
@@ -131,18 +139,7 @@ void monitorFileChanges(vector<Macro> &macros, const string &pathToFile, Display
     }
 }
 
-void logKeyPress(const string& shortcut) {
-    ofstream logFile("keylog.txt", ios::app);
-    if (logFile.is_open()) {
-        logFile << "Shortcut pressed: " << shortcut << endl;
-        logFile.close();
-    } else {
-        cerr << "Error: Could not open log file." << endl;
-    }
-}
-
 void listenForKeyAndRunMacros(vector<Macro>& macros, Display* display) {
-    // Główna pętla, aby monitorować zdarzenia
     while (true) {
         while (XPending(display)) {
             XEvent event;
@@ -183,8 +180,6 @@ void listenForKeyAndRunMacros(vector<Macro>& macros, Display* display) {
                         cout << "Executing script for shortcut " << macro.shortcut << ": " << macro.filePath << endl;
                         string execCommand = "../bin/optimacro " + macro.filePath;
                         system(execCommand.c_str());
-
-                        logKeyPress(macro.shortcut);
                     }
                 }
             }
@@ -211,8 +206,7 @@ int main() {
         XCloseDisplay(display);
     } catch (const exception& e) {
         cerr << "Error: " << e.what() << endl;
-        return 1;
     }
-    
+
     return 0;
 }

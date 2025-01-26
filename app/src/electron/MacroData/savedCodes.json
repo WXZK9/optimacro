@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "name": "asd",
+    "shortcut": "ctrl+a",
+    "filePath": "../../app/src/electron/MacroData/generatedCode_2025-01-26T12-16-57-745Z.lua"
+  },
+  {
+    "name": "asd",
+    "shortcut": "ctrl+l",
+    "filePath": "../../app/src/electron/MacroData/generatedCode_2025-01-26T12-17-43-011Z.lua"
+  },
+  {
+    "name": "qwer",
+    "shortcut": "ctrl+f",
+    "filePath": "../../app/src/electron/MacroData/generatedCode_2025-01-26T12-21-22-430Z.lua"
+  },
+  {
+    "name": "as",
+    "shortcut": "alt+f",
+    "filePath": "../../app/src/electron/MacroData/generatedCode_2025-01-26T12-54-01-103Z.lua"
+  },
+  {
+    "name": "qwe",
+    "shortcut": "ctrl+k",
+    "filePath": "../../app/src/electron/MacroData/generatedCode_2025-01-26T12-55-18-116Z.lua"
+  }
+]

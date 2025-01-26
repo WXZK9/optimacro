@@ -144,46 +144,48 @@ void logKeyPress(const string& shortcut) {
 void listenForKeyAndRunMacros(vector<Macro>& macros, Display* display) {
     // Główna pętla, aby monitorować zdarzenia
     while (true) {
-        XEvent event;
-        XNextEvent(display, &event);  // Czekaj na zdarzenie
+        while (XPending(display)) {
+            XEvent event;
+            XNextEvent(display, &event);  // Czekaj na zdarzenie
 
-        if (event.type == KeyPress) {
-            KeySym keysym = XLookupKeysym(&event.xkey, 0);
+            if (event.type == KeyPress) {
+                KeySym keysym = XLookupKeysym(&event.xkey, 0);
 
-            bool ctrlPressed = event.xkey.state & ControlMask;
-            bool altPressed = event.xkey.state & Mod1Mask;
-            bool shiftPressed = event.xkey.state & ShiftMask;
+                bool ctrlPressed = event.xkey.state & ControlMask;
+                bool altPressed = event.xkey.state & Mod1Mask;
+                bool shiftPressed = event.xkey.state & ShiftMask;
 
-            string pressedKey(1, keysym); // Klawisz
+                string pressedKey(1, keysym); // Klawisz
 
-            cout << "Key pressed: " << pressedKey
-                 << " (Ctrl: " << ctrlPressed
-                 << ", Alt: " << altPressed
-                 << ", Shift: " << shiftPressed
-                 << ")" << endl;
+                cout << "Key pressed: " << pressedKey
+                    << " (Ctrl: " << ctrlPressed
+                    << ", Alt: " << altPressed
+                    << ", Shift: " << shiftPressed
+                    << ")" << endl;
 
-            for (const auto& macro : macros) {
-                bool matchFound = false;
-                string macroShortcut = macro.shortcut;
+                for (const auto& macro : macros) {
+                    bool matchFound = false;
+                    string macroShortcut = macro.shortcut;
 
-                if (pressedKey == macroShortcut.substr(macroShortcut.find_last_of("+") + 1)) {
-                    if ((macroShortcut.find("ctrl") != string::npos && ctrlPressed) &&
-                        (macroShortcut.find("alt") != string::npos && altPressed) &&
-                        (macroShortcut.find("shift") != string::npos && shiftPressed)) {
-                        matchFound = true;
-                    } else if ((macroShortcut.find("ctrl") == string::npos || ctrlPressed) &&
-                               (macroShortcut.find("alt") == string::npos || altPressed) &&
-                               (macroShortcut.find("shift") == string::npos || shiftPressed)) {
-                        matchFound = true;
+                    if (pressedKey == macroShortcut.substr(macroShortcut.find_last_of("+") + 1)) {
+                        if ((macroShortcut.find("ctrl") != string::npos && ctrlPressed) &&
+                            (macroShortcut.find("alt") != string::npos && altPressed) &&
+                            (macroShortcut.find("shift") != string::npos && shiftPressed)) {
+                            matchFound = true;
+                        } else if ((macroShortcut.find("ctrl") == string::npos || ctrlPressed) &&
+                                (macroShortcut.find("alt") == string::npos || altPressed) &&
+                                (macroShortcut.find("shift") == string::npos || shiftPressed)) {
+                            matchFound = true;
+                        }
                     }
-                }
 
-                if (matchFound) {
-                    cout << "Executing script for shortcut " << macro.shortcut << ": " << macro.filePath << endl;
-                    string execCommand = "../bin/optimacro " + macro.filePath;
-                    system(execCommand.c_str());
+                    if (matchFound) {
+                        cout << "Executing script for shortcut " << macro.shortcut << ": " << macro.filePath << endl;
+                        string execCommand = "../bin/optimacro " + macro.filePath;
+                        system(execCommand.c_str());
 
-                    logKeyPress(macro.shortcut);
+                        logKeyPress(macro.shortcut);
+                    }
                 }
             }
         }
